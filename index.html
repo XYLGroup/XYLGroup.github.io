@@ -1,402 +1,491 @@
 <!DOCTYPE HTML>
 <html lang="en">
-  <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	 <meta name="baidu-site-verification" content="codeva-PC6U2WsdeM" />
-	 <meta name="msvalidate.01" content="C7C49ECBD368AEB9585640E7E12BA220" />
-	 
+    <meta name="baidu-site-verification" content="codeva-PC6U2WsdeM" />
+    <meta name="msvalidate.01" content="C7C49ECBD368AEB9585640E7E12BA220" />
     <title>夏靖远/Jingyuan Xia</title>
-
     <meta name="author" content="Jingyuan Xia">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
     
-  </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
 
-  <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  夏靖远/Jingyuan Xia
+    <style>
+        /* --- Base Styles & Typography --- */
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 21px;
+            line-height: 1.75;
+            color: #333;
+            background-color: #fdfdfd;
+            margin: 0;
+            padding: 40px 0;
+        }
+
+        .main-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        h2 {
+            font-size: 2.3em;
+            font-weight: 600;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f0f0f0;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        p {
+            margin-top: 0;
+            margin-bottom: 1.2em;
+        }
+
+        #news-section p {
+            font-size: 1.05em;
+        }
+
+        /* --- Profile Section (Bio + Photo) --- */
+        .profile-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .profile-bio {
+            flex: 1;
+        }
+        .profile-photo {
+            flex: 0 0 320px;
+        }
+        .profile-photo img {
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .profile-name {
+            font-size: 2.9em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* --- Publications Section --- */
+        .publication-row {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            padding: 35px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .publication-row:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-image {
+            flex: 0 0 45%;
+            max-width: 450px;
+            position: relative; /* Needed for the overlay */
+            cursor: zoom-in;
+            overflow: hidden; /* Ensures overlay corners are rounded */
+            border-radius: 8px;
+        }
+        .publication-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .view-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease;
+            pointer-events: none; /* Allows clicks to go through to the image */
+        }
+        
+        .publication-image:hover img {
+            transform: scale(1.05); /* Subtle zoom effect */
+        }
+        .publication-image:hover .view-overlay {
+            opacity: 1; /* Show overlay on hover */
+        }
+        
+        .publication-text {
+            flex: 1;
+        }
+
+        .papertitle {
+            font-size: 1.35em;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .publication-text p {
+            font-size: 0.95em;
+            color: #555;
+            margin-top: 1em;
+            margin-bottom: 0;
+        }
+
+        /* --- Lightbox Styles (for image pop-up) --- */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        #lightbox.active {
+            display: flex;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            border-radius: 4px;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        /* --- Footer --- */
+        .footer-note {
+            text-align: center;
+            font-size: 0.8em;
+            color: #999;
+            margin-top: 50px;
+        }
+
+        /* --- Mobile Responsive Design --- */
+        @media (max-width: 800px) {
+            body {
+                font-size: 18px;
+                padding: 20px 0;
+            }
+            #news-section p {
+                font-size: 1em;
+            }
+            .main-container {
+                padding: 0 15px;
+            }
+
+            .profile-row, .publication-row {
+                flex-direction: column;
+            }
+
+            .profile-photo {
+                order: -1;
+                width: 180px;
+                height: 180px;
+                margin-bottom: 20px;
+            }
+            
+            .publication-image {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            .publication-row {
+                gap: 20px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="profile-row">
+            <div class="profile-bio">
+                <p class="profile-name">夏靖远/Jingyuan Xia</p>
+                <p>我2020年在伦敦帝国理工学院取得博士学位，本硕皆师从国防科技大学电子科学学院黎湘院士，目前在黎院士团队分管硕士/博士招生，以及博士后/教职招聘，有兴趣的也欢迎邮件咨询了解团队招录的详细信息。</p>
+                <p>目前我是国防科技大学电子科学学院的副教授（硕导），本人博士期间主攻方向是传统非凸优化理论与神经网络模型的结合，粗浅地建立一套学习辅助的灰箱优化理论体系。主要解决的是逆问题和盲逆问题求解中的各种难题，致力于在完整保留问题模型前提下引入神经网络化的学习辅助模块，实现无监督、无预训练地问题优化。主要方向围绕统计机器学习理论在盲逆问题优化求解与大模型语义表征学习方向开展研究，主要课题包括智能优化理论与方法、底层视觉、时序信号大模型等。相对来说，因为我喜欢和学生一起探讨前沿技术进展与课题方案设计，课题会跟进最新技术发展进行理论与应用创新。</p>
+                <p>项目经费充裕，所以计算资源、开会交流、软硬配置方面不用担心。不挑学生科研基础，希望你是踏实勤奋、自我驱动的坚守者就行，功不唐捐、玉汝于成。</p>
+                <p>关于我：嘴碎、性急、嗓门大、好为人师，毒舌、强势、讲原则、爱请吃饭。我自己博士淋过雨，所以不会给你泼开水。但是金杯共汝饮，学术不相饶，生活上可以一起开黑、旅游、见天地、见众生、见自己，学业上追求培育严谨、踏实、讲逻辑、有条理、知辩证。</p>
+                <p>关于课题组：学生补助每月到手硕士（4-6千）、博士（7-9千），个人课题：项目工作时间比大致在8:2，软硬件方面提供完备保障。</p>
+                <p>关于你：我享受从零开始培养爱好科研的学者，排斥学术投机主义和精致利己主义。第一份工作会给方案、推代码、rewrite论文，但中后期希望你能独立自主探索未知的科技前行之路，享受日积跬步、以致千里的成长满足感。</p>
+                <p>欢迎邮箱咨询任何你感兴趣的事情。</p>
+                <p>I am now an Associate Professor (mater tutor) at the Department of Electronic Science and Technology, National University of Defense Technology (NUDT), China. Prior to being an academic scholar, I obtained my Ph.D degree at Imperial College London in 2020; finished my Msc.Eng and B.Eng in NUDT, China. My research interest lies in low-level image processing and intelligent signal processing, combining advanced non-convex optimization theory and statistical modeling using learning-aided approaches.</p>
+                <p>Feel free to contact on anything!</p>
+                <p style="text-align:center; font-size: 1.1em; margin-top: 30px;">
+                    <a href="mailto:j.xia10@nudt.edu.cn">Email</a> &nbsp;/&nbsp;
+                    <a href="https://scholar.google.com.hk/citations?user=Pdt-EUAAAAAJ&hl=en">Scholar</a> &nbsp;/&nbsp;
+                    <a href="https://github.com/XYLGroup">Github</a>
                 </p>
+            </div>
+            <div class="profile-photo">
+                <img alt="profile photo" src="images/Xia.jpg">
+            </div>
+        </div>
 
-				<p>
-				我2020年在伦敦帝国理工学院取得博士学位，本硕皆师从国防科技大学电子科学学院黎湘院士，目前在黎院士团队分管硕士/博士招生，以及博士后/教职招聘，有兴趣的也欢迎邮件咨询了解团队招录的详细信息。
-				</p>
-				
-				<p>
-				目前我是国防科技大学电子科学学院的副教授（硕导），本人博士期间主攻方向是传统非凸优化理论与神经网络模型的结合，粗浅地建立一套学习辅助的灰箱优化理论体系。主要解决的是逆问题和盲逆问题求解中的各种难题，致力于在完整保留问题模型前提下引入神经网络化的学习辅助模块，实现无监督、无预训练地问题优化。主要方向围绕统计机器学习理论在盲逆问题优化求解与大模型语义表征学习方向开展研究，主要课题包括智能优化理论与方法、底层视觉、时序信号大模型等。相对来说，因为我喜欢和学生一起探讨前沿技术进展与课题方案设计，课题会跟进最新技术发展进行理论与应用创新。
-        </p>
+        <div id="news-section">
+            <h2>Events and News</h2>
+            <p>Sep 2025: Happy to announce that our paper <strong>Luminance-Aware Statistical Quantization: Unsupervised Hierarchical Learning for Illumination Enhancement</strong> has been accepted to <strong>NeurIPS 2025</strong>!</p>
+            <p>Jun 2025: Happy to announce that one paper has been accepted to <strong>TIP</strong>!</p>
+            <p>May 2025: It is an honor to announce that our paper <strong>Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</strong>, TPAMI 2024, has been selected as a Highly Cited Paper (Top 1%) and a Hot Paper (Top 0.1%).</p>
+            <p>Apr 2025: Happy to announce that two graduate students' works have been accepted by <strong>GRSL</strong>!</p>
+            <p>Mar 2025: Happy to announce that one paper has been accepted to <strong>ICML</strong>!</p>
+            <p>Dec 2024: Happy to announce that our paper <strong>A Cross-Modal Multi-Attitude Framework for the Generation of Space Target ISAR Images</strong> has been accepted to <strong>ICASSP</strong>!</p>
+            <p>May 2024: Happy to announce that our paper <strong>Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</strong> has been accepted to <strong>TPAMI</strong>!</p>
+            <p>Mar 2024: Happy to announce that our paper <strong>A Dynamic Kernel Prior Model for Unsupervised Blind Image Super-Resolution</strong> has been accepted to <strong>CVPR</strong>!</p>
+            <p>Sep 2023: Happy to announce that our paper <strong>Meta-Learning Based Domain Prior with Application to Optical-ISAR Image Translation</strong> has been accepted to <strong>TCSVT</strong>!</p>
+            <p>Sep 2023: Happy to announce that our paper <strong>Meta-Learning Based Alternating Minimization Algorithm for Nonconvex Optimization</strong> has been accepted to <strong>TNNLS</strong>!</p>
+        </div>
 
-        <p>
-        项目经费充裕，所以计算资源、开会交流、软硬配置方面不用担心。不挑学生科研基础，希望你是踏实勤奋、自我驱动的坚守者就行，功不唐捐、玉汝于成。
-				</p>
-				
-				<p>
-				关于我：嘴碎、性急、嗓门大、好为人师，毒舌、强势、讲原则、爱请吃饭。我自己博士淋过雨，所以不会给你泼开水。但是金杯共汝饮，学术不相饶，生活上可以一起开黑、旅游、见天地、见众生、见自己，学业上追求培育严谨、踏实、讲逻辑、有条理、知辩证。
-				</p>
-				
-				<p>
-				关于课题组：学生补助每月到手硕士（4-6千）、博士（7-9千），个人课题:项目工作时间比大致在8:2，软硬件方面提供完备保障。
-				</p>
-				
-				<p>
-				关于你：我享受从零开始培养爱好科研的学者，排斥学术投机主义和精致利己主义。第一份工作会给方案、推代码、rewrite论文，但中后期希望你能独立自主探索未知的科技前行之路，享受日积跬步、以致千里的成长满足感。
-				</p>
-				
-				<p>
-				欢迎邮箱咨询任何你感兴趣的事情。				
-				</p>
-				
-				<p>
-				I am now an Associate Professor (mater tutor) at the Department of Electronic Science and Technology, National University of Defense Technology (NUDT), China. Prior to being an academic scholar, I obtained my Ph.D degree at Imperial College London in 2020; finished my Msc.Eng and B.Eng in NUDT, China. My research interest lies in low-level image processing and intelligent signal processing, combining advanced non-convex optimization theory and statistical modeling using learning-aided approaches.
-				</p>
-				
-				<p>
-				Feel free to contact on anything!
-                </p>
-				
-                <p style="text-align:center">
-                  <a href="mailto:j.xia10@nudt.edu.cn">Email</a> &nbsp;/&nbsp;
-                  <a href="https://scholar.google.com.hk/citations?user=Pdt-EUAAAAAJ&hl=en">Scholar</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/XYLGroup">Github</a>
-                </p>
-              </td>
-              <td style="padding:2.5%;width:40%;max-width:40%">
-                <a href="images/Xia.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/Xia.jpg" class="hoverZoomLink"></a>
-              </td>
-            </tr>
-          </tbody></table>
-		  
-		 
-		<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Events and News</h2>
-				
+        <div>
+            <h2>Publications</h2>
+            
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2025-NeurIPS-LASQ.png" alt="Preview of LASQ paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">Luminance-Aware Statistical Quantization: Unsupervised Hierarchical Learning for Illumination Enhancement</span>
+                    Derong Kong, Zhixiong Yang, Shengxi Li, Shuaifeng Zhi, Li Liu, Zhen Liu, <strong>Jingyuan Xia</strong>
+                    <br> <em>NeurIPS</em>, 2025
+                    <br> <a href="https://neurips.cc/virtual/2025/poster/118433" target="_blank">Paper</a>
+                    <p>LASQ reformulates low-light image enhancement as a statistical sampling process over hierarchical luminance distributions, leveraging a diffusion-based forward process to autonomously model luminance transitions and achieve unsupervised, generalizable light restoration across diverse illumination conditions.</p>
+                </div>
+            </div>
 
-				 <!--近期动态开始-->
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2025-GRSL-SAKE.png" alt="Preview of SAKE paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">SAKE: Unsupervised HSI Super-Resolution via Adaptive Kernel Estimation and Reconstruction</span>
+                    Lingyu Zheng, Zhixiong Yang, Tong Qiu, <strong>Jingyuan Xia</strong>
+                    <br> <em>IEEE Geoscience and Remote Sensing Letters</em>, 2025
+                    <br> <a href="https://ieeexplore.ieee.org/abstract/document/11005589">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11005589">PDF</a> / <a href="https://github.com/XYLGroup/SAKE">Code</a> 
+                    <p>SAKE performs unsupervised HSI super-resolution via adaptive blur kernel estimation, requiring no extra data and demonstrating superior generalization across scenarios.</p>
+                </div>
+            </div>
+            
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2025-GRSL-SAIG.png" alt="Preview of SAIG paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">SAIG: Semantic-Aware ISAR Generation via Component-Level Semantic Segmentation</span>
+                    Yuxin Zhao, Huaizhang Liao, Derong Kong, Zhixiong Yang, <strong>Jingyuan Xia</strong>
+                    <br> <em>IEEE Geoscience and Remote Sensing Letters</em>, 2025
+                    <br> <a href="https://ieeexplore.ieee.org/document/10975048">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10975048">PDF</a>
+                    <p>SAIG introduces a semantic-aware generation framework using segmentation-based refinement to produce high-fidelity ISAR images from optical inputs.</p>
+                </div>
+            </div>
 
-        <p>Jun 2025: Happy to announce that one paper got accepted to <strong>TIP</strong>!</p>
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2025-ICASSP-AORC.png" alt="Preview of AORC paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">A Cross-Modal Multi-Attitude Framework for the Generation of Space Target ISAR Images</span>
+                    Derong Kong, Huaizhang Liao, <strong>Jingyuan Xia</strong>
+                    <br> <em>IEEE International Conference on Acoustics, Speech and Signal Processing</em>, 2025
+                    <br> <a href="https://ieeexplore.ieee.org/abstract/document/10888516">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10888516">PDF</a>
+                    <p>AORC learns attitude-aware latent representations and transforms them into high-fidelity ISAR images from optical inputs through a Brownian-Bridge-based diffusion process.</p>
+                </div>
+            </div>
 
-        <p>May 2025: It is honor to claim that our paper <strong>Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</strong>, TPAMI 2024 has been selected as highly cited paper and hot paper.</p>
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2025-Neurocomputing.png" alt="Preview of SIFT paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">The SIFT based two-stage STC decoupled learning method for long-tailed SAR target recognition</span>
+                    Ye Li, <strong>Jingyuan Xia</strong>, Huaizhang Liao, Xu Lan, Weidong Jiang
+                    <br> <em>Neurocomputing</em>, 2025
+                    <br> <a href="https://www.sciencedirect.com/science/article/pii/S0925231225004199">Paper</a> / <a href="https://www.sciencedirect.com/science/article/pii/S0925231225004199/pdfft">PDF</a> / <a href="https://github.com/XYLGroup/STC">Code</a>
+                    <p>STC leverages SIFT features and decoupled learning to tackle class imbalance in SAR target recognition, achieving strong generalization and SOTA performance.</p>
+                </div>
+            </div>
 
-        <p>Apr 2025: Happy to announce that two graduate student's works are accepted by <strong>GRSL</strong>, respectively!</p>
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2024-CVPR-poster.png" alt="Preview of DKP paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">A Dynamic Kernel Prior Model for Unsupervised Blind Image Super-Resolution</span>
+                    Zhixiong Yang, <strong>Jingyuan Xia</strong>, Shengxi Li, Xinghua Huang, Shuanghui Zhang, Zhen Liu, Yaowen Fu, Yongxiang Liu
+                    <br> <em>CVPR</em>, 2024
+                    <br> <a href="https://arxiv.org/abs/2404.15620">Paper</a> / <a href="https://arxiv.org/pdf/2404.15620">PDF</a> / <a href="https://github.com/XYLGroup/DKP">Code</a>
+                    <p>The proposed DKP is a plug-and-play kernel estimation tool, which can be combined with the off-the-shelf image restoration model, e.g., DIP and Diffusion model, to realize unsupervised blind image super-resolution.</p>
+                </div>
+            </div>
 
-        <p>Mar 2025: Happy to announce that one paper got accepted to <strong>ICML</strong>!</p>
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2024-Neural-Networks-DDSR.png" alt="Preview of DDSR paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">Meta-learning based blind image super-resolution approach to different degradations</span>
+                    <br> Zhixiong Yang and <strong>Jingyuan Xia</strong> and Shengxi Li and Wende Liu and Shuaifeng Zhi and Shuanghui Zhang and Li Liu and Yaowen Fu and Deniz Gündüz
+                    <br> <em>Neural Networks</em>, 2024
+                    <br> <a href="https://ieeexplore.ieee.org/document/10335726">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10335726">PDF</a> / <a href="https://github.com/XYLGroup/DDSR">Code</a>
+                    <p>DDSR is an unsupervised blind SISR method, which can handle different degradations, such as partial occlusion, noise, and low-light conditions.</p>
+                </div>
+            </div>
 
-        <p>Dec 2024: Happy to announce that our paper <strong>A Cross-Modal Multi-Attitude Framework for the Generation of Space Target ISAR Images</strong> got accepted to <strong>ICASSP</strong>!</p>
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2024-TPAMI.png" alt="Preview of MLMC paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</span>
+                    <br> <strong>Xia, Jingyuan</strong> and Yang, Zhixiong and Li, Shengxi and Zhang, Shuanghui and Fu, Yaowen and Gündüz, Deniz and Li, Xiang
+                    <br> <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, 2024
+                    <br> <a href="https://ieeexplore.ieee.org/document/10533864">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10533864">PDF</a> / <a href="https://github.com/XYLGroup/MLMC">Code</a>
+                    <p>This paper proposes a plug-and-play blind image super-resolution method based on the Meta-learning and Markov Chain Monte Carlo, which contributes to preventing bad local optimal solutions from the optimization perspective.</p>
+                </div>
+            </div>
 
-        <p>May 2024: Happy to announce that our paper <strong>Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</strong> got accepted to TPAMI!</p>
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2023-TCSVT-MLDP.png" alt="Preview of MLDP paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">Meta-learning based Domain Prior with Application to Optical-ISAR Image Translation</span>
+                    <br> Liao, Huaizhang and <strong>Xia, Jingyuan</strong> and Yang, Zhixiong and Pan, Fulin and Liu, Zhen and Liu, Yongxiang
+                    <br> <em>IEEE Transactions on Circuits and Systems for Video Technology</em>, 2023
+                    <br> <a href="https://ieeexplore.ieee.org/document/10261220">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10261220">PDF</a> / <a href="https://github.com/XYLGroup/MLDP">Code</a>
+                    <p>The proposed MLDP aims to realize the image translation from optical domain to ISAR domain. To generate realistic ISAR images, MLDP learns the scattering distribution features and the classification identifying features in physical and task perspectives. Meanwhile, MLDP applies the meta-learning strategy to improve its generalization ability to generate ISAR images under limited training samples.</p>
+                </div>
+            </div>
 
-        <p>Mar 2024: Happy to announce that our paper <strong>A Dynamic Kernel Prior Model for Unsupervised Blind lmage Super-Resolution</strong> got accepted to CVPR!</p>
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2023-TNNLS-MLAM-two-level.png" alt="Preview of MLAM paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">Metalearning-Based Alternating Minimization Algorithm for Nonconvex Optimization</span>
+                    <br> <strong>Xia, Jing-Yuan</strong> and Li, Shengxi and Huang, Jun-Jie and Yang, Zhixiong and Jaimoukha, Imad M. and Gündüz, Deniz
+                    <br> <em>IEEE Transactions on Neural Networks and Learning Systems</em>, 2023
+                    <br> <a href="https://ieeexplore.ieee.org/document/9760074">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9760074">PDF</a> / <a href="https://github.com/XYLGroup/MLAM">Code</a>
+                    <p>This paper proposes a meta-learning-based alternating minimization (MLAM) method for nonconvex problems of multiple variables, which aims to minimize a part of the global losses over iterations instead of carrying minimization on each subproblem, and it tends to learn an adaptive strategy to replace the handcrafted counterpart resulting in advance on superior performance.</p>
+                </div>
+            </div>
 
-        <p>Sep 2023: Happy to announce that our paper <strong>Meta-learning based Domain Prior with Application to Optical-lSAR lmage Translation</strong> got accepted to TCSVT!</p>
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2023-Cyber.png" alt="Preview of LI-MKKM-MR paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">Localized Incomplete Multiple Kernel k-Means With Matrix-Induced Regularization</span>
+                    <br> Li, Miaomiao and <strong>Xia, Jingyuan</strong> and Xu, Huiying and Liao, Qing and Zhu, Xinzhong and Liu, Xinwang
+                    <br> <em>IEEE Transactions on Cybernetics</em>, 2023
+                    <br> <a href="https://ieeexplore.ieee.org/abstract/document/9626624">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9626624">PDF</a>
+                    <p>An improved Localized incomplete multiple kernel k-means (LI-MKKM), called LI-MKKM with matrix-induced regularization (LI-MKKM-MR), is proposed by incorporating a matrix-induced regularization term to handle the correlation among base kernels. We theoretically show that the local kernel alignment is a special case of its global one with normalizing each base kernel matrices.</p>
+                </div>
+            </div>
 
-        <p>Sep 2023: Happy to announce that our paper <strong>Metalearning-based alternating minimization algorithm for nonconvex optimization</strong> got accepted to TNNLS!</p>
-				 <!--近期动态结束-->
+            <div class="publication-row">
+                <div class="publication-image">
+                    <img src="images/2022-WCL.png" alt="Preview of LAGD paper">
+                    <div class="view-overlay">View</div>
+                </div>
+                <div class="publication-text">
+                    <span class="papertitle">A Learning-Aided Flexible Gradient Descent Approach to MISO Beamforming</span>
+                    <br> Yang, Zhixiong and <strong>Xia, Jing-Yuan</strong> and Luo, Junshan and Zhang, Shuanghui and Gündüz, Deniz
+                    <br> <em>IEEE Wireless Communications Letters</em>, 2022
+                    <br> <a href="https://ieeexplore.ieee.org/document/9805773">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9805773">PDF</a> / <a href="https://github.com/XYLGroup/LAGD">Code</a>
+                    <p>This letter proposes a learning aided gradient descent (LAGD) algorithm to solve the weighted sum rate (WSR) maximization problem for multiple-input single-output (MISO) beamforming. The proposed LAGD algorithm directly optimizes the transmit precoder through implicit gradient descent based iterations, at each of which the optimization strategy is determined by a neural network, and thus, is dynamic and adaptive.</p>
+                </div>
+            </div>
+        </div>
 
-					
-              </td>
-            </tr>
-          </tbody></table>
-		  
-		  
-	<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    
-	
-	<!--论文开始-->
+        <div>
+            <h2>Miscellanea</h2>
+            <p><strong>meta reviewer: </strong>PRCV</p>
+            <p><strong>reviewer: </strong>CVPR、NIPS、ICCV、ECCV、AAAI</p>
+        </div>
 
-  <tr>
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div style="display: flex; align-items: center; height: 100%;">
-        <img src="images/2025-GRSL-SAKE.png" style="width: 100%; display: block; margin: auto;">
-      </div>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <span class="papertitle">SAKE: Unsupervised HSI Super-Resolution via Adaptive Kernel Estimation and Reconstruction</span>
-      <br>
-      Lingyu Zheng, Zhixiong Yang, Tong Qiu, <strong>Jingyuan Xia</strong>
-      <br>
-      <em>IEEE Geoscience and Remote Sensing Letters</em>, 2025
-      <br>
-      <a href="https://ieeexplore.ieee.org/abstract/document/11005589">Paper</a> /
-      <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11005589">PDF</a>
-      <p></p>
-      <p>
-        SAKE performs unsupervised HSI super-resolution via adaptive blur kernel estimation, requiring no extra data and demonstrating superior generalization across scenarios.
-      </p>
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div style="display: flex; align-items: center; height: 100%;">
-        <img src="images/2025-GRSL-SAIG.png" style="width: 100%; display: block; margin: auto;">
-      </div>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <span class="papertitle">SAIG: Semantic-Aware ISAR Generation via Component-Level Semantic Segmentation</span>
-      <br>
-      Yuxin Zhao, Huaizhang Liao, Derong Kong, Zhixiong Yang, <strong>Jingyuan Xia</strong>
-      <br>
-      <em>IEEE Geoscience and Remote Sensing Letters</em>, 2025
-      <br>
-      <a href="https://ieeexplore.ieee.org/document/10975048">Paper</a> /
-      <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10975048">PDF</a>
-      <p></p>
-      <p>
-        SAIG introduces a semantic-aware generation framework using segmentation-based refinement to produce high-fidelity ISAR images from optical inputs.
-      </p>
-    </td>
-  </tr>
+        <div class="footer-note">
+            <p>Thank Dr. Jon Barron for sharing the <a href="https://github.com/jonbarron/jonbarron_website">source code</a> of the website.</p>
+        </div>
+    </div>
 
-  <tr>
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div style="display: flex; align-items: center; height: 100%;">
-        <img src="images/2025-ICASSP-AORC.png" style="width: 100%; display: block; margin: auto;">
-      </div>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <span class="papertitle">A Cross-Modal Multi-Attitude Framework for the Generation of Space Target ISAR Images</span>
-      <br>
-      Derong Kong, Huaizhang Liao, <strong>Jingyuan Xia</strong>
-      <br>
-      <em>IEEE International Conference on Acoustics, Speech and Signal Processing</em>, 2025
-      <br>
-      <a href="https://ieeexplore.ieee.org/abstract/document/10888516">Paper</a> /
-      <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10888516">PDF</a>
-      <p></p>
-      <p>
-        AORC learns attitude-aware latent representations and transforms them into high-fidelity ISAR images from optical inputs through a Brownian-Bridge-based diffusion process.
-      </p>
-    </td>
-  </tr>
+    <div id="lightbox">
+        <img src="" alt="Enlarged publication image">
+    </div>
 
-  <tr>
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div style="display: flex; align-items: center; height: 100%;">
-        <img src="images/2025-Neurocomputing.png" style="width: 100%; display: block; margin: auto;">
-      </div>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <span class="papertitle">The SIFT based two-stage STC decoupled learning method for long-tailed SAR target recognition</span>
-      <br>
-      Ye Li, <strong>Jingyuan Xia</strong>, Huaizhang Liao, Xu Lan, Weidong Jiang
-      <br>
-      <em>Neurocomputing</em>, 2025
-      <br>
-      <a href="https://www.sciencedirect.com/science/article/pii/S0925231225004199">Paper</a> /
-      <a href="https://www.sciencedirect.com/science/article/pii/S0925231225004199/pdfft">PDF</a> /
-      <a href="https://github.com/XYLGroup/STC">Code</a>
-      <p></p>
-      <p>
-        STC leverages SIFT features and decoupled learning to tackle class imbalance in SAR target recognition, achieving strong generalization and SOTA performance.
-      </p>
-    </td>
-  </tr>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            const publicationImages = document.querySelectorAll('.publication-image');
 
-  <tr>
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div style="display: flex; align-items: center; height: 100%;">
-        <img src="images/2024-CVPR-poster.png" style="width: 100%; display: block; margin: auto;">
-      </div>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <span class="papertitle">A Dynamic Kernel Prior Model for Unsupervised Blind Image Super-Resolution</span>
-      <br>
-      Zhixiong Yang, <strong>Jingyuan Xia</strong>, Shengxi Li, Xinghua Huang, Shuanghui Zhang, Zhen Liu, Yaowen Fu, Yongxiang Liu
-      <br>
-      <em>CVPR</em>, 2024
-      <br>
-      <a href="https://arxiv.org/abs/2404.15620">Paper</a> /
-      <a href="https://arxiv.org/pdf/2404.15620">PDF</a> /
-      <a href="https://github.com/XYLGroup/DKP">Code</a>
-      <p></p>
-      <p>
-        The proposed DKP is a plug-and-play kernel estimation tool, which can be combined with the off-the-shelf image restoration model, e.g., DIP and Diffusion model, to realize unsupervised blind image super-resolution.
-      </p>
-    </td>
-  </tr>   
+            publicationImages.forEach(imageContainer => {
+                imageContainer.addEventListener('click', () => {
+                    const originalImg = imageContainer.querySelector('img');
+                    const imgSrc = originalImg.getAttribute('src');
+                    
+                    lightboxImg.setAttribute('src', imgSrc);
+                    
+                    lightbox.classList.add('active');
+                    
+                    // A small delay to allow the display property to apply before transitioning opacity and transform
+                    setTimeout(() => {
+                        lightbox.style.opacity = '1';
+                        lightboxImg.style.transform = 'scale(1)';
+                    }, 20);
+                });
+            });
 
-  <tr>
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div style="display: flex; align-items: center; height: 100%;">
-        <img src="images/2024-Neural-Networks-DDSR.png" style="width: 100%; display: block; margin: auto;">
-      </div>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <span class="papertitle">Meta-learning based blind image super-resolution approach to different degradations</span>
-      <br>
-      Zhixiong Yang and <strong>Jingyuan Xia</strong> and Shengxi Li and Wende Liu and Shuaifeng Zhi and Shuanghui Zhang and Li Liu and Yaowen Fu and Deniz Gündüz 
-      <br>
-      <em>Neural Networks</em>, 2024
-      <br>
-      <a href="https://ieeexplore.ieee.org/document/10335726">Paper</a> /
-      <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10335726">PDF</a> /
-      <a href="https://github.com/XYLGroup/DDSR">Code</a>
-      <p></p>
-      <p>
-        DDSR is an unsupervised blind SISR method, which can handel different degradations, such as partial covered, noise, and dark.
-      </p>
-    </td>
-  </tr>    
+            lightbox.addEventListener('click', () => {
+                lightbox.style.opacity = '0';
+                lightboxImg.style.transform = 'scale(0.8)';
+                
+                // Wait for the transition to finish before hiding it
+                setTimeout(() => {
+                    lightbox.classList.remove('active');
+                }, 300); // 300ms matches the CSS transition time
+            });
+        });
+    </script>
 
-  <tr>
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div style="display: flex; align-items: center; height: 100%;">
-        <img src="images/2024-TPAMI.png" style="width: 100%; display: block; margin: auto;">
-      </div>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <span class="papertitle">Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</span>
-      <br>
-      <strong>Xia, Jingyuan</strong> and Yang, Zhixiong and Li, Shengxi and Zhang, Shuanghui and Fu, Yaowen and Gündüz, Deniz and Li, Xiang
-      <br>
-      <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, 2024
-      <br>
-      <a href="https://ieeexplore.ieee.org/document/10533864">Paper</a> /
-      <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10533864">PDF</a> /
-      <a href="https://github.com/XYLGroup/MLMC">Code</a>
-      <p></p>
-      <p>
-        This paper proposes a plug-and-play blind image super-resolution method based on the Meta-learning and Markov Chain Monte Carlo, which contributes to preventing bad local optimal solutions from the optimization perspective.
-      </p>
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div style="display: flex; align-items: center; height: 100%;">
-        <img src="images/2023-TCSVT-MLDP.png" style="width: 100%; display: block; margin: auto;">
-      </div>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <span class="papertitle">Meta-learning based Domain Prior with Application to Optical-ISAR Image Translation</span>
-      <br>
-      Liao, Huaizhang and <strong>Xia, Jingyuan</strong> and Yang, Zhixiong and Pan, Fulin and Liu, Zhen and Liu, Yongxiang
-      <br>
-      <em>IEEE Transactions on Circuits and Systems for Video Technology</em>, 2023
-      <br>
-      <a href="https://ieeexplore.ieee.org/document/10261220">Paper</a> /
-      <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10261220">PDF</a> /
-      <a href="https://github.com/XYLGroup/MLDP">Code</a>
-      <p></p>
-      <p>
-        The proposed MLDP aims to realize the image translation from optical domain to ISAR domain. To generate realistic ISAR images, MLDP learns the scattering distribution features and the classification identifying features in physical and task perspectives. Meanwhile, MLDP applies the meta-learning strategy to improve its generalization ability to generate ISAR images under limited training samples.
-      </p>
-    </td>
-  </tr>
-
-  <tr>
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div style="display: flex; align-items: center; height: 100%;">
-        <img src="images/2023-TNNLS-MLAM-two-level.png" style="width: 100%; display: block; margin: auto;">
-      </div>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <span class="papertitle">Metalearning-Based Alternating Minimization Algorithm for Nonconvex Optimization</span>
-      <br>
-      <strong>Xia, Jing-Yuan</strong> and Li, Shengxi and Huang, Jun-Jie and Yang, Zhixiong and Jaimoukha, Imad M. and Gündüz, Deniz
-      <br>
-      <em>IEEE Transactions on Neural Networks and Learning Systems</em>, 2023
-      <br>
-      <a href="https://ieeexplore.ieee.org/document/9760074">Paper</a> /
-      <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9760074">PDF</a> /
-      <a href="https://github.com/XYLGroup/MLAM">Code</a>
-      <p></p>
-      <p>
-        This paper proposes a meta-learning-based alternating minimization (MLAM) method for nonconvex problems of multiple variables, which aims to minimize a part of the global losses over iterations instead of carrying minimization on each subproblem, and it tends to learn an adaptive strategy to replace the handcrafted counterpart resulting in advance on superior performance.
-      </p>
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div style="display: flex; align-items: center; height: 100%;">
-        <img src="images/2023-Cyber.png" style="width: 100%; display: block; margin: auto;">
-      </div>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <span class="papertitle">Localized Incomplete Multiple Kernel k-Means With Matrix-Induced Regularization</span>
-      <br>
-      Li, Miaomiao and <strong>Xia, Jingyuan</strong> and Xu, Huiying and Liao, Qing and Zhu, Xinzhong and Liu, Xinwang
-      <br>
-      <em>IEEE Transactions on Cybernetics</em>, 2023
-      <br>
-      <a href="https://ieeexplore.ieee.org/abstract/document/9626624">Paper</a> /
-      <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9626624">PDF</a>
-      <p></p>
-      <p>
-        An improved Localized incomplete multiple kernel k-means (LI-MKKM), called LI-MKKM with matrix-induced regularization (LI-MKKM-MR), is proposed by incorporating a matrix-induced regularization term to handle the correlation among base kernels. We theoretically show that the local kernel alignment is a special case of its global one with normalizing each base kernel matrices.
-      </p>
-    </td>
-  </tr>
-      
-  <tr>
-    <td style="padding:20px;width:25%;vertical-align:middle">
-      <div style="display: flex; align-items: center; height: 100%;">
-        <img src="images/2022-WCL.png" style="width: 100%; display: block; margin: auto;">
-      </div>
-    </td>
-    <td style="padding:20px;width:75%;vertical-align:middle">
-      <span class="papertitle">A Learning-Aided Flexible Gradient Descent Approach to MISO Beamforming</span>
-      <br>
-      Yang, Zhixiong and <strong>Xia, Jing-Yuan</strong> and Luo, Junshan and Zhang, Shuanghui and Gündüz, Deniz
-      <br>
-      <em>IEEE Wireless Communications Letters</em>, 2022
-      <br>
-      <a href="https://ieeexplore.ieee.org/document/9805773">Paper</a> /
-      <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9805773">PDF</a> /
-      <a href="https://github.com/XYLGroup/LAGD">Code</a>
-      <p></p>
-      <p>
-        This letter proposes a learning aided gradient descent (LAGD) algorithm to solve the weighted sum rate (WSR) maximization problem for multiple-input single-output (MISO) beamforming. The proposed LAGD algorithm directly optimizes the transmit precoder through implicit gradient descent based iterations, at each of which the optimization strategy is determined by a neural network, and thus, is dynamic and adaptive.
-      </p>
-    </td>
-  </tr>
-     
-    
-	<!--论文结束-->
-
-
-
-		<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Miscellanea</h2>
-				
-		
-
-        <p> <strong>meta reviewer：</strong>PRCV</p>
-        <p> <strong>reviewer：</strong>CVPR、NIPS、ICCV、ECCV、AAAI</p>
-
-
-
-					
-              </td>
-            </tr>
-          </tbody></table>
-
-
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:middle;font-size:small;">
-                  Thank Dr. Jon Barron for sharing the <a href="https://github.com/jonbarron/jonbarron_website">source code</a> of the website. 
-				  </p>
-              </td>
-            </tr>
-          </tbody></table>
-        </td>
-      </tr>
-    </table>
-  </body>
+</body>
 </html>
