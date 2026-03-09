@@ -17,8 +17,8 @@
         /* --- Base Styles & Typography --- */
         body {
             font-family: 'Source Sans Pro', 'Microsoft YaHei', sans-serif;
-            font-size: 21px;
-            line-height: 1.75;
+            font-size: 21px; /* 全局统一基础字体大小 */
+            line-height: 1.75; /* 全局统一行间距 */
             color: #333;
             background-color: #fdfdfd;
             margin: 0;
@@ -50,12 +50,10 @@
         }
         
         p {
+            font-size: 1em; /* 确保所有 p 标签严格继承基础字号 */
+            line-height: 1.75;
             margin-top: 0;
             margin-bottom: 1.2em;
-        }
-
-        #news-section p {
-            font-size: 1.05em;
         }
 
         /* --- Hero Section (整体居中的 左图右文 名片区) --- */
@@ -140,24 +138,22 @@
         .about-section h2 {
             margin-top: 0; 
         }
-        .about-section p {
-            margin-bottom: 1.5em;
-        }
 
         /* --- Photo Wall (PPT Carousel) Section --- */
         #photo-wall-section {
-            display: none; /* 默认隐藏，由JS根据是否有图片决定是否显示 */
+            display: none; 
             margin-top: 60px;
         }
         .carousel-container {
             position: relative;
-            max-width: 850px;
+            width: 100%; 
+            max-width: 100%; 
             margin: 0 auto;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 30px rgba(0,0,0,0.15);
             background-color: #000;
-            aspect-ratio: 16 / 9; /* 经典的PPT比例 */
+            aspect-ratio: 16 / 9; 
         }
         .carousel-slide {
             position: absolute;
@@ -178,7 +174,7 @@
         .carousel-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* 保证整张照片完整显示，类似PPT放映 */
+            object-fit: contain; 
             background-color: #111;
         }
         /* 左右切换按钮 */
@@ -189,8 +185,8 @@
             background-color: rgba(0, 0, 0, 0.4);
             color: white;
             border: none;
-            font-size: 2em;
-            padding: 15px 20px;
+            font-size: 1.5em; 
+            padding: 10px 15px; 
             cursor: pointer;
             z-index: 2;
             transition: background-color 0.3s;
@@ -208,19 +204,26 @@
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
+            gap: 8px; 
             z-index: 2;
+            flex-wrap: wrap; 
+            justify-content: center;
+            max-width: 90%;
         }
         .dot {
-            width: 12px;
-            height: 12px;
+            width: 8px; 
+            height: 8px; 
             background-color: rgba(255, 255, 255, 0.5);
             border-radius: 50%;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .dot:hover {
+            transform: scale(1.2);
         }
         .dot.active {
             background-color: white;
+            transform: scale(1.2);
         }
 
         /* --- Publications Section --- */
@@ -288,10 +291,13 @@
             display: block;
             margin-bottom: 10px;
         }
+        
+        /* 统一了论文摘要段落的格式，与正文完全一致 */
         .publication-text p {
-            font-size: 0.95em;
-            color: #555;
-            margin-top: 1em;
+            font-size: 1em; /* 去除了此前的 0.95em 缩小设定 */
+            line-height: 1.75; /* 确保行间距一致 */
+            color: #555; /* 摘要部分保留稍浅的灰色以作层级区分，但排版尺寸完全一致 */
+            margin-top: 0.8em;
             margin-bottom: 0;
         }
 
@@ -334,11 +340,8 @@
         /* --- Mobile Responsive Design --- */
         @media (max-width: 800px) {
             body {
-                font-size: 18px;
+                font-size: 18px; /* 移动端统一等比例缩小为 18px */
                 padding: 20px 0;
-            }
-            #news-section p {
-                font-size: 1em;
             }
             .main-container {
                 padding: 0 15px;
@@ -725,16 +728,22 @@
         // ==========================================
         // 团队照片墙配置（PPT轮播图）
         // ==========================================
-        // 1. 请在下方的数组中填入您 activity 文件夹下的图片完整路径。
-        // 2. 如果这里没有填写任何图片（保持 [] ），网页上的“团队风采”模块会自动隐藏。
-        // 3. 支持 .jpg, .png, .webp 等格式。
-        const activityPhotos = [
-            // 解开注释并修改为您的真实图片名即可展示，例如：
-            //"activity/20240528.jpg",
-            //"activity/20240528-2.jpg",
-            //"activity/20250518.jpg",
-            //"activity/20260201.jpg"
-        ];
+        
+        // 自动生成 1.jpg 到 36.jpg 的数组
+        const rawActivityPhotos = Array.from({length: 36}, (_, i) => `activity/${i + 1}.jpg`);
+
+        // Fisher-Yates 洗牌算法：打乱照片顺序实现真正的随机播放
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        // 每次刷新页面时，生成一份随机顺序的图片列表
+        const activityPhotos = shuffleArray(rawActivityPhotos);
 
         // 轮播图内部逻辑
         let currentSlide = 0;
@@ -744,16 +753,13 @@
             const section = document.getElementById('photo-wall-section');
             const container = document.getElementById('carousel-container');
             
-            // 如果没有图片，彻底隐藏该模块
             if (!activityPhotos || activityPhotos.length === 0) {
                 section.style.display = 'none';
                 return;
             }
 
-            // 显示模块
             section.style.display = 'block';
 
-            // 动态生成轮播图的 HTML 结构
             let slidesHtml = '';
             let dotsHtml = '<div class="carousel-dots">';
             
@@ -808,7 +814,7 @@
         function startSlideShow() {
             slideInterval = setInterval(() => {
                 changeSlide(1);
-            }, 4000); // 4000毫秒 = 4秒
+            }, 4000); 
         }
 
         function stopSlideShow() {
