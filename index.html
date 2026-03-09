@@ -17,8 +17,8 @@
         /* --- Base Styles & Typography --- */
         body {
             font-family: 'Source Sans Pro', 'Microsoft YaHei', sans-serif;
-            font-size: 21px; /* 全局统一基础字体大小 */
-            line-height: 1.75; /* 全局统一行间距 */
+            font-size: 21px; 
+            line-height: 1.75; 
             color: #333;
             background-color: #fdfdfd;
             margin: 0;
@@ -50,7 +50,7 @@
         }
         
         p {
-            font-size: 1em; /* 确保所有 p 标签严格继承基础字号 */
+            font-size: 1em; 
             line-height: 1.75;
             margin-top: 0;
             margin-bottom: 1.2em;
@@ -154,6 +154,7 @@
             box-shadow: 0 8px 30px rgba(0,0,0,0.15);
             background-color: #000;
             aspect-ratio: 16 / 9; 
+            touch-action: pan-y; /* 优化手机端触摸滑动体验 */
         }
         .carousel-slide {
             position: absolute;
@@ -292,11 +293,10 @@
             margin-bottom: 10px;
         }
         
-        /* 统一了论文摘要段落的格式，与正文完全一致 */
         .publication-text p {
-            font-size: 1em; /* 去除了此前的 0.95em 缩小设定 */
-            line-height: 1.75; /* 确保行间距一致 */
-            color: #555; /* 摘要部分保留稍浅的灰色以作层级区分，但排版尺寸完全一致 */
+            font-size: 1em; 
+            line-height: 1.75; 
+            color: #555; 
             margin-top: 0.8em;
             margin-bottom: 0;
         }
@@ -340,7 +340,7 @@
         /* --- Mobile Responsive Design --- */
         @media (max-width: 800px) {
             body {
-                font-size: 18px; /* 移动端统一等比例缩小为 18px */
+                font-size: 18px; 
                 padding: 20px 0;
             }
             .main-container {
@@ -380,6 +380,12 @@
                 width: 100%;
                 max-width: 320px;
                 margin: 0 auto;
+            }
+            
+            /* 手机端按钮调整 */
+            .carousel-btn {
+                font-size: 1.2em;
+                padding: 8px 12px;
             }
         }
     </style>
@@ -726,13 +732,11 @@
 
     <script>
         // ==========================================
-        // 团队照片墙配置（PPT轮播图）
+        // 团队照片墙配置（PPT轮播图）- 懒加载优化版
         // ==========================================
         
-        // 自动生成 1.jpg 到 36.jpg 的数组
         const rawActivityPhotos = Array.from({length: 36}, (_, i) => `activity/${i + 1}.jpg`);
 
-        // Fisher-Yates 洗牌算法：打乱照片顺序实现真正的随机播放
         function shuffleArray(array) {
             const shuffled = [...array];
             for (let i = shuffled.length - 1; i > 0; i--) {
@@ -742,12 +746,20 @@
             return shuffled;
         }
 
-        // 每次刷新页面时，生成一份随机顺序的图片列表
         const activityPhotos = shuffleArray(rawActivityPhotos);
 
-        // 轮播图内部逻辑
         let currentSlide = 0;
         let slideInterval;
+
+        // 懒加载核心逻辑：按需分配真正的图片地址
+        function lazyLoadImage(index) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            if(!slides[index]) return;
+            const img = slides[index].querySelector('img');
+            if (img && !img.getAttribute('src')) {
+                img.setAttribute('src', img.getAttribute('data-src'));
+            }
+        }
 
         function initCarousel() {
             const section = document.getElementById('photo-wall-section');
@@ -765,7 +777,8 @@
             
             activityPhotos.forEach((src, index) => {
                 const activeClass = index === 0 ? 'active' : '';
-                slidesHtml += `<div class="carousel-slide ${activeClass}"><img src="${src}" alt="Activity Photo ${index + 1}"></div>`;
+                // 关键点：使用 data-src 而不是直接绑定 src
+                slidesHtml += `<div class="carousel-slide ${activeClass}"><img data-src="${src}" alt="Activity Photo ${index + 1}"></div>`;
                 dotsHtml += `<div class="dot ${activeClass}" onclick="goToSlide(${index})"></div>`;
             });
             dotsHtml += '</div>';
@@ -777,12 +790,35 @@
 
             container.innerHTML = slidesHtml + controlsHtml + dotsHtml;
 
-            // 开启自动播放 (每4秒切换)
+            // 初始时只加载当前图和下一张图，避免网络拥堵
+            lazyLoadImage(currentSlide);
+            lazyLoadImage((currentSlide + 1) % activityPhotos.length);
+
             startSlideShow();
             
-            // 鼠标悬停时暂停播放，移开时继续
             container.addEventListener('mouseenter', stopSlideShow);
             container.addEventListener('mouseleave', startSlideShow);
+
+            // 手机端手势滑动支持
+            let touchstartX = 0;
+            let touchendX = 0;
+            
+            container.addEventListener('touchstart', e => {
+                touchstartX = e.changedTouches[0].screenX;
+                stopSlideShow(); // 触摸时暂停自动播放
+            }, {passive: true});
+
+            container.addEventListener('touchend', e => {
+                touchendX = e.changedTouches[0].screenX;
+                handleSwipe();
+                startSlideShow(); // 结束后恢复
+            }, {passive: true});
+
+            function handleSwipe() {
+                // 滑动距离超过 50px 才算有效切换
+                if (touchendX < touchstartX - 50) changeSlide(1); 
+                if (touchendX > touchstartX + 50) changeSlide(-1);
+            }
         }
 
         function changeSlide(direction) {
@@ -794,6 +830,10 @@
             
             currentSlide = (currentSlide + direction + slides.length) % slides.length;
             
+            // 切换时预加载当前和下一张图
+            lazyLoadImage(currentSlide);
+            lazyLoadImage((currentSlide + 1) % slides.length);
+
             slides[currentSlide].classList.add('active');
             dots[currentSlide].classList.add('active');
         }
@@ -806,6 +846,10 @@
             dots[currentSlide].classList.remove('active');
             
             currentSlide = index;
+            
+            // 跳转时预加载当前和下一张图
+            lazyLoadImage(currentSlide);
+            lazyLoadImage((currentSlide + 1) % slides.length);
             
             slides[currentSlide].classList.add('active');
             dots[currentSlide].classList.add('active');
@@ -825,10 +869,8 @@
         // 论文大图查看器逻辑 (Lightbox)
         // ==========================================
         document.addEventListener('DOMContentLoaded', () => {
-            // 初始化轮播图
             initCarousel();
 
-            // 初始化 Lightbox
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = lightbox.querySelector('img');
             const publicationImages = document.querySelectorAll('.publication-image');
