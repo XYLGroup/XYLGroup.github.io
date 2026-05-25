@@ -198,35 +198,6 @@
         }
         .carousel-btn.prev { left: 15px; }
         .carousel-btn.next { right: 15px; }
-        /* 底部指示小圆点 */
-        .carousel-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px; 
-            z-index: 2;
-            flex-wrap: wrap; 
-            justify-content: center;
-            max-width: 90%;
-        }
-        .dot {
-            width: 8px; 
-            height: 8px; 
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-        .dot:hover {
-            transform: scale(1.2);
-        }
-        .dot.active {
-            background-color: white;
-            transform: scale(1.2);
-        }
-
         /* --- Publications Section --- */
         .publication-row {
             display: flex;
@@ -420,7 +391,7 @@
             <h2>个人简介</h2>
             
             <p><strong>一、 我是谁</strong><br>
-            我是一名扎根于人工智能与信号处理交叉领域的科研工作者，现任国防科技大学电子科学学院副教授（博导）。我于2020年在伦敦帝国理工学院取得博士学位，本硕皆师从国防科技大学电子科学学院黎湘院士。目前，我在黎院士团队分管硕士/博士招生，以及博士后/教职招聘工作。</p>
+            我是一名扎根于人工智能与信号处理交叉领域的科研工作者，现任国防科技大学电子科学学院副教授（博导）。我于2020年在伦敦帝国理工学院取得博士学位，本硕皆师从国防科技大学电子科学学院黎湘院士。</p>
             
             <p><strong>二、 研究方向与学术追求：在理论与真实物理世界的交汇处“死磕”</strong><br>
             我的研究根植于机器学习理论的底层逻辑（特别是统计学习与优化理论）。博士期间，我主攻传统非凸优化理论与神经网络模型的深度结合，建立了一套“学习辅助的灰箱优化”理论体系，致力于在完整保留问题模型的前提下，实现无监督、无预训练的逆问题求解。</p>
@@ -824,22 +795,19 @@
             section.style.display = 'block';
 
             let slidesHtml = '';
-            let dotsHtml = '<div class="carousel-dots">';
             
             activityPhotos.forEach((src, index) => {
                 const activeClass = index === 0 ? 'active' : '';
                 // 关键点：使用 data-src 而不是直接绑定 src
                 slidesHtml += `<div class="carousel-slide ${activeClass}"><img data-src="${src}" alt="Activity Photo ${index + 1}"></div>`;
-                dotsHtml += `<div class="dot ${activeClass}" onclick="goToSlide(${index})"></div>`;
             });
-            dotsHtml += '</div>';
 
             const controlsHtml = `
                 <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
                 <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
             `;
 
-            container.innerHTML = slidesHtml + controlsHtml + dotsHtml;
+            container.innerHTML = slidesHtml + controlsHtml;
 
             // 初始时只加载当前图和下一张图，避免网络拥堵
             lazyLoadImage(currentSlide);
@@ -874,10 +842,8 @@
 
         function changeSlide(direction) {
             const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.dot');
             
             slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
             
             currentSlide = (currentSlide + direction + slides.length) % slides.length;
             
@@ -886,24 +852,6 @@
             lazyLoadImage((currentSlide + 1) % slides.length);
 
             slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-
-        function goToSlide(index) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.dot');
-            
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            
-            currentSlide = index;
-            
-            // 跳转时预加载当前和下一张图
-            lazyLoadImage(currentSlide);
-            lazyLoadImage((currentSlide + 1) % slides.length);
-            
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
         }
 
         function startSlideShow() {
