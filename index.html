@@ -988,6 +988,324 @@ h2::after {
 }
 </style>
 
+
+<style>
+/* =========================================================
+   Hero/contact refinement — reference-page proportions
+   ========================================================= */
+
+/* Treat the copy + portrait as one centered visual group. */
+.hero-section {
+    width: min(100%, 1040px);
+    justify-content: center;
+    gap: clamp(54px, 6.2vw, 76px);
+    padding: 42px 16px 52px;
+    margin: 0 auto 26px;
+}
+.hero-info {
+    flex: 0 1 690px;
+    max-width: 690px;
+}
+.hero-photo img {
+    width: 230px;
+    height: 300px;
+    border-radius: 11px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.09);
+}
+.hero-name {
+    margin: 0 0 17px;
+    font-size: clamp(46px, 4.45vw, 54px);
+    line-height: 1.08;
+    letter-spacing: .05em;
+}
+.hero-subtitle {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 27px;
+    color: #454545;
+    line-height: 1.65;
+}
+.hero-role {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: .01em;
+}
+.hero-role-sep {
+    padding: 0 .18em;
+    color: #858585;
+    font-weight: 400;
+}
+.hero-affiliation {
+    font-size: 21px;
+    font-weight: 400;
+    color: #4f4f4f;
+}
+
+/* Contacts: larger than before, but still subordinate to identity text. */
+.hero-contact-block {
+    width: min(100%, 660px);
+    margin-top: 0;
+    color: var(--muted);
+}
+.hero-contact-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    min-width: 0;
+}
+.hero-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    color: var(--accent);
+    font-size: 17.4px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+.hero-contact-link:hover { color: var(--accent-deep); }
+.hero-contact-link svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+}
+.contact-primary {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+.contact-secondary {
+    min-width: 0;
+    max-width: 310px;
+    overflow: hidden;
+    color: #9299a1;
+    font-size: 15.2px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color .18s ease;
+}
+.hero-contact-link:hover .contact-secondary { color: #69717a; }
+.copy-email-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    margin-left: -3px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    color: #a8adb3;
+    cursor: pointer;
+    transition: color .18s ease, background .18s ease, border-color .18s ease;
+}
+.copy-email-btn:hover,
+.copy-email-btn:focus-visible {
+    border-color: rgba(244,147,0,.18);
+    background: rgba(251,165,36,.07);
+    color: var(--accent-deep);
+    outline: none;
+}
+.copy-email-btn svg { width: 14px; height: 14px; }
+.hero-contact-divider {
+    width: min(100%, 625px);
+    height: 1px;
+    margin: 10px 0 11px;
+    background: linear-gradient(90deg, rgba(30,30,30,.13), rgba(30,30,30,.07) 78%, transparent);
+}
+.hero-contact-row-profiles {
+    gap: 7px 8px;
+}
+.profile-name-link { gap: 7px; }
+.contact-slash {
+    margin: 0 2px;
+    color: #b7b7b7;
+    font-size: 15px;
+    line-height: 1;
+}
+
+/* Static academic metrics — self-contained, no API / Shields / Actions dependency.
+   Manual update: only change the numeric text in the two .metric-value spans in the hero HTML. */
+.static-metric-badge {
+    display: inline-flex;
+    align-items: stretch;
+    height: 23px;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.07);
+    vertical-align: middle;
+    line-height: 1;
+    white-space: nowrap;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.static-metric-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,.10);
+}
+.metric-label,
+.metric-value {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 23px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .005em;
+}
+.metric-label {
+    gap: 4px;
+    padding: 0 7px;
+    border: 1px solid #d6d9dc;
+    border-right: 0;
+    background: linear-gradient(180deg, #fafafa 0%, #f1f2f3 100%);
+    color: #4b5157;
+}
+.metric-label svg {
+    width: 12px;
+    height: 12px;
+    flex: 0 0 auto;
+}
+.scholar-static .metric-label svg { color: #4285f4; }
+.github-static .metric-label svg { color: #24292f; }
+.metric-value {
+    min-width: 38px;
+    padding: 0 7px;
+    border: 1px solid #88b9e6;
+    background: linear-gradient(180deg, #acd7ff 0%, #99ccff 100%);
+    color: #24415e;
+    font-variant-numeric: tabular-nums;
+}
+@media (max-width: 560px) {
+    .static-metric-badge { height: 22px; }
+    .metric-label, .metric-value { height: 22px; font-size: 11px; }
+    .metric-label { padding: 0 6px; }
+    .metric-value { min-width: 36px; padding: 0 6px; }
+}
+
+.copy-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    z-index: 120;
+    transform: translate(-50%, 16px);
+    padding: 8px 13px;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 999px;
+    background: rgba(255,255,255,.94);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #555;
+    font-size: 12.5px;
+    line-height: 1.3;
+    box-shadow: 0 6px 22px rgba(0,0,0,.10);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+}
+.copy-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+/* Keep publication warm-title treatment from the reference page. */
+.papertitle { color: #aa6d12; }
+.publication-row:hover .papertitle { color: #8e5b11; }
+
+/* Tablet: preserve a two-column hero longer, then stack cleanly. */
+@media (max-width: 900px) and (min-width: 821px) {
+    .hero-section {
+        gap: 42px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .hero-info { flex-basis: 560px; }
+    .hero-photo img { width: 210px; height: 274px; }
+    .hero-name { font-size: 45px; }
+    .hero-role { font-size: 20px; }
+    .hero-affiliation { font-size: 19px; }
+    .hero-contact-link { font-size: 16px; }
+}
+
+@media (max-width: 820px) {
+    .hero-section {
+        width: min(100%, 650px);
+        flex-direction: column;
+        gap: 25px;
+        padding: 24px 12px 34px;
+        text-align: center;
+    }
+    .hero-info {
+        flex: 0 1 auto;
+        width: min(100%, 600px);
+        max-width: 600px;
+        align-items: center;
+        text-align: center;
+    }
+    .hero-photo img { width: 196px; height: 256px; }
+    .hero-name { font-size: 40px; }
+    .hero-subtitle { align-items: center; margin-bottom: 24px; }
+    .hero-role { font-size: 19px; }
+    .hero-affiliation { font-size: 18px; }
+    .hero-contact-block {
+        width: min(100%, 560px);
+        text-align: left;
+    }
+    .hero-contact-row { justify-content: center; }
+    .hero-contact-divider {
+        width: min(100%, 500px);
+        margin-left: auto;
+        margin-right: auto;
+        background: linear-gradient(90deg, transparent, rgba(30,30,30,.12) 14%, rgba(30,30,30,.12) 86%, transparent);
+    }
+}
+
+@media (max-width: 560px) {
+    .hero-section { padding-top: 20px; }
+    .hero-photo img { width: 176px; height: 230px; }
+    .hero-name { font-size: 35px; }
+    .hero-role { font-size: 17.5px; }
+    .hero-affiliation { font-size: 16.5px; }
+    .hero-contact-row-email {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 28px;
+        width: min(100%, 390px);
+        margin: 0 auto;
+    }
+    .email-contact { min-width: 0; }
+    .contact-secondary {
+        max-width: none;
+        font-size: 13.6px;
+    }
+    .hero-contact-row-profiles {
+        gap: 8px 7px;
+        justify-content: center;
+    }
+    .hero-contact-link { font-size: 14.8px; }
+    .hero-contact-link svg { width: 14.5px; height: 14.5px; }
+    .contact-slash { display: none; }
+}
+
+@media (max-width: 390px) {
+    .hero-contact-row-profiles {
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 6px;
+        row-gap: 9px;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-contact-row-profiles .profile-name-link:nth-of-type(2) { grid-column: 1; grid-row: 2; }
+    .hero-contact-row-profiles .github-static { grid-column: 2; grid-row: 2; }
+}
+</style>
+
 </head>
 <body>
 <nav aria-label="页面章节导航" class="section-drip-nav"><a href="#about-section"><span>个人简介</span></a><a href="#photo-wall-section"><span>团队风采</span></a><a href="#news-section"><span>新闻动态</span></a><a href="#publications-section"><span>成果发表</span></a></nav><div class="main-container"><nav aria-label="页面章节导航" class="mobile-section-nav"><a href="#about-section">个人简介</a><a href="#photo-wall-section">团队风采</a><a href="#news-section">新闻动态</a><a href="#publications-section">成果发表</a></nav>
@@ -998,13 +1316,45 @@ h2::after {
 <div class="hero-info">
 <h1 class="hero-name">夏靖远</h1>
 <div class="hero-subtitle">
-                    副教授  |  博士生导师<br/>
-                    国防科技大学 电子科学学院
-                </div>
-<div class="hero-links">
-<a href="mailto:j.xia10@nudt.edu.cn"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m3 7 9 6 9-6"></path></svg>Email</a>
-<a href="https://scholar.google.com.hk/citations?user=Pdt-EUAAAAAJ&amp;hl=en"><svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M12 3 1.5 9 12 15 22.5 9 12 3Z"></path><path d="M5 12.1v4.2c0 1.2 3.1 3.2 7 3.2s7-2 7-3.2v-4.2l-7 4-7-4Z"></path></svg>Google Scholar</a>
-<a href="https://github.com/XYLGroup"><svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M12 .5C5.7.5.6 5.6.6 11.9c0 5 3.3 9.3 7.9 10.8.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.5 2.7 3.2 1.9.1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.6.1-3.1 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.8.1 3.1.8.9 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.4 5.6 18.3.5 12 .5Z"></path></svg>GitHub</a>
+<span class="hero-role">副教授 <span class="hero-role-sep">|</span> 博士生导师</span>
+<span class="hero-affiliation">国防科技大学 电子科学学院</span>
+</div>
+<div class="hero-contact-block" aria-label="学术联系方式">
+<div class="hero-contact-row hero-contact-row-email">
+<a class="hero-contact-link email-contact" href="mailto:j.xia10@nudt.edu.cn" title="发送邮件至 j.xia10@nudt.edu.cn">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m3 7 9 6 9-6"></path></svg>
+<span class="contact-primary">Email:</span><span class="contact-secondary">j.xia10@nudt.edu.cn</span>
+</a>
+<button class="copy-email-btn" type="button" data-email="j.xia10@nudt.edu.cn" aria-label="复制邮箱地址" title="复制邮箱地址">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+</button>
+</div>
+<div class="hero-contact-divider" aria-hidden="true"></div>
+<div class="hero-contact-row hero-contact-row-profiles">
+<a class="hero-contact-link profile-name-link" href="https://scholar.google.com.hk/citations?user=Pdt-EUAAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
+<svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3 1.5 9 12 15 22.5 9 12 3Z"></path><path d="M5 12.1v4.2c0 1.2 3.1 3.2 7 3.2s7-2 7-3.2v-4.2l-7 4-7-4Z"></path></svg>
+<span class="contact-primary">Google Scholar</span>
+</a>
+<!-- 手动更新 Google Scholar 引用数：只需修改下面 metric-value 中的数字 -->
+<span class="static-metric-badge scholar-static" title="Google Scholar citations: 1973 · manually maintained">
+<span class="metric-label">
+<svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3 1.5 9 12 15 22.5 9 12 3Z"></path><path d="M5 12.1v4.2c0 1.2 3.1 3.2 7 3.2s7-2 7-3.2v-4.2l-7 4-7-4Z"></path></svg>
+<span>citations</span>
+</span><span class="metric-value" id="manual-scholar-citations">1973</span>
+</span>
+<span class="contact-slash" aria-hidden="true">/</span>
+<a class="hero-contact-link profile-name-link" href="https://github.com/XYLGroup" target="_blank" rel="noopener noreferrer" aria-label="XYLGroup GitHub profile">
+<svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.6 5.6.6 11.9c0 5 3.3 9.3 7.9 10.8.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.5 2.7 3.2 1.9.1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.6.1-3.1 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.8.1 3.1.8.9 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.4 5.6 18.3.5 12 .5Z"></path></svg>
+<span class="contact-primary">GitHub</span>
+</a>
+<!-- 手动更新 GitHub stars：只需修改下面 metric-value 中的数字 -->
+<span class="static-metric-badge github-static" title="XYLGroup total GitHub stars · manually maintained">
+<span class="metric-label">
+<svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.6 5.6.6 11.9c0 5 3.3 9.3 7.9 10.8.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.5 2.7 3.2 1.9.1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.6.1-3.1 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.8.1 3.1.8.9 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.4 5.6 18.3.5 12 .5Z"></path></svg>
+<span>stars</span>
+</span><span class="metric-value" id="manual-github-stars">171</span>
+</span>
+</div>
 </div>
 </div>
 </div>
@@ -1363,6 +1713,7 @@ h2::after {
 <div id="lightbox">
 <img alt="Enlarged publication image" src=""/>
 </div>
+<div class="copy-toast" id="copyToast" role="status" aria-live="polite">邮箱地址已复制</div>
 
 <button aria-label="回到顶部" id="backToTop" title="回到顶部" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="m18 15-6-6-6 6"></path></svg></button><script>
 // ==========================================
@@ -1508,6 +1859,47 @@ function initLightbox() {
 }
 
 // ==========================================
+// 邮箱复制交互
+// ==========================================
+function initEmailCopy() {
+    const button = document.querySelector('.copy-email-btn');
+    const toast = document.getElementById('copyToast');
+    if (!button) return;
+
+    let toastTimer = null;
+    const showToast = (message) => {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    };
+
+    button.addEventListener('click', async () => {
+        const email = button.dataset.email || '';
+        if (!email) return;
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(email);
+            } else {
+                const area = document.createElement('textarea');
+                area.value = email;
+                area.setAttribute('readonly', '');
+                area.style.position = 'fixed';
+                area.style.opacity = '0';
+                document.body.appendChild(area);
+                area.select();
+                document.execCommand('copy');
+                area.remove();
+            }
+            showToast('邮箱地址已复制');
+        } catch (error) {
+            showToast('复制失败，请手动复制邮箱');
+        }
+    });
+}
+
+// ==========================================
 // 章节导航高亮 + 回到顶部
 // ==========================================
 function initPageNavigation() {
@@ -1538,7 +1930,9 @@ function initPageNavigation() {
 document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
     initLightbox();
+    initEmailCopy();
     initPageNavigation();
 });
-</script></body>
+</script>
+</body>
 </html>
