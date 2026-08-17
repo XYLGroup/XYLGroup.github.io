@@ -1,921 +1,1544 @@
 <!DOCTYPE HTML>
+
 <html lang="zh-CN">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="baidu-site-verification" content="codeva-PC6U2WsdeM" />
-    <meta name="msvalidate.01" content="C7C49ECBD368AEB9585640E7E12BA220" />
-    <title>夏靖远</title>
-    <meta name="author" content="Jingyuan Xia">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="codeva-PC6U2WsdeM" name="baidu-site-verification"/>
+<meta content="C7C49ECBD368AEB9585640E7E12BA220" name="msvalidate.01"/>
+<title>夏靖远</title>
+<meta content="Jingyuan Xia" name="author"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="images/favicon/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
 
-    <style>
-        /* --- Base Styles & Typography --- */
-        body {
-            font-family: 'Source Sans Pro', 'Microsoft YaHei', sans-serif;
-            font-size: 21px; 
-            line-height: 1.75; 
-            color: #333;
-            background-color: #fdfdfd;
-            margin: 0;
-            padding: 40px 0;
-        }
 
-        .main-container {
-            max-width: 1150px;
-            margin: 0 auto;
-            padding: 0 25px;
-        }
-        
-        h2 {
-            font-size: 2.3em;
-            font-weight: 600;
-            margin-top: 50px;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #f0f0f0;
-        }
 
-        a {
-            color: #0056b3;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        p {
-            font-size: 1em; 
-            line-height: 1.75;
-            margin-top: 0;
-            margin-bottom: 1.2em;
-        }
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;display=swap" rel="stylesheet"/><style>
+:root {
+    --accent: #f49300;
+    --accent-2: #fba524;
+    --accent-deep: #8a5c00;
+    --accent-soft: rgba(251, 165, 36, 0.10);
+    --ink: #242424;
+    --muted: #626262;
+    --soft-muted: #8f8f8f;
+    --line: rgba(28, 28, 28, 0.12);
+    --line-soft: rgba(28, 28, 28, 0.075);
+    --paper: #ffffff;
+    --page: #fffdf8;
+    --warm: #fff8e9;
+    --shadow: 0 8px 28px rgba(50, 42, 30, 0.07);
+    --shadow-hover: 0 14px 34px rgba(50, 42, 30, 0.11);
+    --radius: 12px;
+}
 
-        /* --- Hero Section (整体居中的 左图右文 名片区) --- */
-        .hero-section {
-            display: flex;
-            align-items: center;
-            justify-content: center; 
-            gap: 60px; 
-            margin-top: 20px;
-            margin-bottom: 70px;
-        }
-        .hero-photo {
-            flex: 0 0 auto;
-        }
-        .hero-photo img {
-            width: 240px;          
-            height: 320px;         
-            border-radius: 50%;    
-            object-fit: cover;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.1); 
-            display: block;
-        }
-        .hero-info {
-            flex: 0 0 auto; 
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start; 
-            text-align: left;
-        }
-        .hero-name {
-            font-size: 3.2em;
-            font-weight: 600;
-            margin: 0 0 12px 0;
-            color: #111;
-            letter-spacing: 2px;
-        }
-        .hero-subtitle {
-            font-size: 1.25em;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-        .hero-links {
-            font-size: 1.15em;
-            display: flex;
-            justify-content: flex-start;
-            gap: 35px;
-            flex-wrap: wrap;
-        }
-        /* 超链接悬浮下划线展开动画 */
-        .hero-links a {
-            color: #0056b3;
-            text-decoration: none;
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 2px;
-        }
-        .hero-links a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #0056b3;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
-        }
-        .hero-links a:hover {
-            text-decoration: none;
-        }
-        .hero-links a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    padding: 0 0 42px;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 14% 0%, rgba(251,165,36,0.07), transparent 24rem),
+        linear-gradient(180deg, #fffefb 0%, var(--page) 100%);
+    font-family: 'Lato', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+    font-size: 16px;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
 
-        /* --- About Section (Detailed Intro) --- */
-        .about-section {
-            text-align: justify;
-        }
-        .about-section h2 {
-            margin-top: 0; 
-        }
+::selection { background: rgba(251,165,36,0.22); }
+a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color .18s ease, background-color .18s ease, border-color .18s ease;
+}
+a:hover, a:focus-visible { color: var(--accent-deep); }
+a:focus-visible { outline: 2px solid rgba(244,147,0,.35); outline-offset: 3px; border-radius: 3px; }
 
-        /* --- Photo Wall (PPT Carousel) Section --- */
-        #photo-wall-section {
-            display: none; 
-            margin-top: 60px;
-        }
-        .carousel-container {
-            position: relative;
-            width: 100%; 
-            max-width: 100%; 
-            margin: 0 auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            background-color: #000;
-            aspect-ratio: 16 / 9; 
-            touch-action: pan-y; /* 优化手机端触摸滑动体验 */
-        }
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .carousel-slide.active {
-            opacity: 1;
-            z-index: 1;
-        }
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; 
-            background-color: #111;
-        }
-        /* 左右切换按钮 */
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.4);
-            color: white;
-            border: none;
-            font-size: 1.5em; 
-            padding: 10px 15px; 
-            cursor: pointer;
-            z-index: 2;
-            transition: background-color 0.3s;
-            border-radius: 4px;
-        }
-        .carousel-btn:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-        .carousel-btn.prev { left: 15px; }
-        .carousel-btn.next { right: 15px; }
-        /* --- Publications Section --- */
-        .publication-row {
-            display: flex;
-            align-items: center;
-            gap: 45px;
-            padding: 35px 0;
-            border-bottom: 1px solid #eee;
-        }
-        .publication-row:last-child {
-            border-bottom: none;
-        }
-        
-        .publication-image {
-            flex: 0 0 45%;
-            max-width: 450px;
-            position: relative;
-            cursor: zoom-in;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-        .publication-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-        
-        .view-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
-            font-weight: 600;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .publication-image:hover img {
-            transform: scale(1.05);
-        }
-        .publication-image:hover .view-overlay {
-            opacity: 1;
-        }
-        
-        .publication-text {
-            flex: 1;
-            text-align: justify;
-        }
+.main-container {
+    width: min(100% - 36px, 1040px);
+    margin: 0 auto;
+    padding: 28px 0 0;
+}
 
-        .papertitle {
-            font-size: 1.35em;
-            font-weight: 600;
-            display: block;
-            margin-bottom: 10px;
-        }
+.page-section { scroll-margin-top: 34px; }
 
-        .papertitle.compact-title {
-            margin-bottom: 0;
-        }
-        
-        .publication-text p {
-            font-size: 1em; 
-            line-height: 1.75; 
-            color: #555; 
-            margin-top: 0.8em;
-            margin-bottom: 0;
-        }
+/* --- Reference-template style side navigation --- */
+.section-drip-nav {
+    position: fixed;
+    z-index: 80;
+    top: 50%;
+    left: calc(50% + 545px);
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    padding: 6px 0;
+}
+.section-drip-nav::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    bottom: 14px;
+    left: 11px;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #d8d8d8 12%, #d8d8d8 88%, transparent);
+}
+.section-drip-nav a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    color: #555;
+    font-weight: 400;
+}
+.section-drip-nav a::before {
+    content: '';
+    width: 11px;
+    height: 15px;
+    margin: 0 12px 0 6px;
+    border: 1px solid #d4d4d4;
+    border-radius: 999px 999px 999px 2px;
+    background: #fffdf7;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    transform: rotate(-45deg);
+    transition: .18s ease;
+}
+.section-drip-nav span {
+    padding: 3px 8px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background: rgba(255,255,255,.74);
+    color: #555;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: .72;
+    transition: .18s ease;
+}
+.section-drip-nav a:hover::before,
+.section-drip-nav a.active::before {
+    border-color: var(--accent-2);
+    background: #fff4d7;
+    transform: rotate(-45deg) scale(1.12);
+}
+.section-drip-nav a:hover span,
+.section-drip-nav a.active span {
+    opacity: 1;
+    color: #222;
+    border-color: #e7e7e7;
+    background: rgba(255,255,255,.96);
+}
 
-        /* --- Lightbox Styles --- */
-        #lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: zoom-out;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        #lightbox.active {
-            display: flex;
-        }
-        #lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            box-shadow: 0 0 40px rgba(0,0,0,0.5);
-            border-radius: 4px;
-            transform: scale(0.8);
-            transition: transform 0.3s ease;
-        }
+.mobile-section-nav { display: none; }
 
-        /* --- Footer --- */
-        .footer-note {
-            text-align: center;
-            font-size: 0.8em;
-            color: #999;
-            margin-top: 50px;
-        }
+/* --- Hero / profile --- */
+.hero-section {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    gap: 68px;
+    padding: 30px 26px 42px;
+    margin: 0 0 18px;
+    border-bottom: 1px solid var(--line-soft);
+}
+.hero-photo { flex: 0 0 auto; }
+.hero-photo img {
+    display: block;
+    width: 220px;
+    height: 286px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 12px 30px rgba(0,0,0,.10);
+    background: #f3f3f3;
+}
+.hero-info {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+.hero-name {
+    margin: 0 0 15px;
+    color: #161616;
+    font-size: clamp(36px, 4.4vw, 48px);
+    line-height: 1.12;
+    font-weight: 700;
+    letter-spacing: .06em;
+}
+.hero-subtitle {
+    margin-bottom: 24px;
+    color: #555;
+    font-size: 18px;
+    line-height: 1.7;
+}
+.hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px 22px;
+    font-size: 14.5px;
+}
+.hero-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    font-weight: 700;
+}
+.hero-links a:hover { color: var(--accent-deep); }
+.hero-links svg { width: 15px; height: 15px; flex: 0 0 auto; }
 
-        /* --- Mobile Responsive Design --- */
-        @media (max-width: 800px) {
-            body {
-                font-size: 18px; 
-                padding: 20px 0;
-            }
-            .main-container {
-                padding: 0 15px;
-            }
+/* --- Shared section treatment --- */
+h2 {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 26px;
+    padding: 0 0 7px;
+    color: #202020;
+    font-size: 28px;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent-2), #f3d008);
+}
 
-            .hero-section {
-                flex-direction: column; 
-                text-align: center;
-                gap: 25px;
-                margin-top: 10px;
-                margin-bottom: 40px;
-            }
-            .hero-info {
-                align-items: center; 
-                text-align: center;
-            }
-            .hero-photo img {
-                width: 210px; 
-                height: 280px;
-            }
-            .hero-name {
-                font-size: 2.6em;
-            }
-            .hero-links {
-                justify-content: center;
-                gap: 20px;
-            }
+.about-section,
+#photo-wall-section,
+#news-section,
+#publications-section {
+    margin-top: 22px;
+    padding: 32px 34px;
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    background: rgba(255,255,255,.82);
+    box-shadow: var(--shadow);
+}
 
-            .publication-row {
-                flex-direction: column;
-                gap: 20px;
-                align-items: flex-start;
-            }
-            
-            .publication-image {
-                width: 100%;
-                max-width: 320px;
-                margin: 0 auto;
-            }
-            
-            /* 手机端按钮调整 */
-            .carousel-btn {
-                font-size: 1.2em;
-                padding: 8px 12px;
-            }
-        }
-    </style>
+/* --- About --- */
+.about-section { text-align: justify; }
+.about-section p {
+    margin: 0 0 1.05em;
+    color: #3a3a3a;
+    font-size: 16.2px;
+    line-height: 1.92;
+}
+.about-section p:last-child { margin-bottom: 0; }
+.about-section .about-lead {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px dashed rgba(0,0,0,.11);
+}
+.about-section .about-lead:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+.about-section .about-lead > strong:first-child {
+    color: #222;
+    font-size: 17px;
+}
+.about-section strong { color: #292929; }
+
+/* --- Activity carousel --- */
+#photo-wall-section { display: none; }
+.carousel-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 10px;
+    background: #111;
+    box-shadow: 0 9px 24px rgba(0,0,0,.13);
+    touch-action: pan-y;
+}
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .55s ease-in-out;
+}
+.carousel-slide.active { z-index: 1; opacity: 1; }
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #111;
+}
+.carousel-btn {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 50%;
+    background: rgba(20,20,20,.48);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .18s ease, transform .18s ease;
+}
+.carousel-btn:hover { background: rgba(20,20,20,.78); transform: translateY(-50%) scale(1.05); }
+.carousel-btn.prev { left: 16px; }
+.carousel-btn.next { right: 16px; }
+
+/* --- News timeline --- */
+.news-list {
+    position: relative;
+    margin-top: 2px;
+    padding-left: 0;
+}
+.news-list::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 16px;
+    bottom: 16px;
+    width: 2px;
+    border-radius: 2px;
+    background: linear-gradient(to bottom, #f3d008, var(--accent-2));
+    opacity: .34;
+}
+.news-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 9px 12px 9px 0;
+    border-radius: 9px;
+    transition: background .18s ease, transform .18s ease;
+}
+.news-item:hover {
+    background: rgba(251,165,36,.055);
+    transform: translateX(3px);
+}
+.news-dot {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    width: 10px;
+    height: 10px;
+    margin-top: 9px;
+    border-radius: 50%;
+    background: #f3d008;
+    box-shadow: 0 0 0 3px rgba(243,208,8,.17);
+}
+.news-body { min-width: 0; flex: 1; }
+.news-body p {
+    margin: 0;
+    color: #3d3d3d;
+    font-size: 15.5px;
+    line-height: 1.66;
+}
+.news-body p > strong:first-child {
+    display: inline-block;
+    margin-right: 4px;
+    padding: 1px 7px 2px;
+    border: 1px solid rgba(138,92,0,.38);
+    border-radius: 4px;
+    background: linear-gradient(135deg, rgba(251,165,36,.10), rgba(243,208,8,.07));
+    color: #3b3325;
+    font-size: 12.5px;
+    line-height: 1.4;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* --- Publications --- */
+#publications-section { padding-bottom: 18px; }
+.publication-row {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0 0 18px;
+    padding: 20px;
+    border: 1px solid rgba(0,0,0,.115);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.035);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.publication-row:hover {
+    transform: translateY(-2px);
+    border-color: rgba(251,165,36,.45);
+    box-shadow: var(--shadow-hover);
+}
+.publication-row:last-child { margin-bottom: 0; }
+.publication-image {
+    position: relative;
+    flex: 0 0 38%;
+    max-width: 350px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 8px;
+    background: #f5f5f5;
+    cursor: zoom-in;
+}
+.publication-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 7px;
+    transition: transform .25s ease;
+}
+.publication-image:hover img { transform: scale(1.025); }
+.view-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,.54);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    opacity: 0;
+    transition: opacity .18s ease;
+    pointer-events: none;
+}
+.publication-image:hover .view-overlay { opacity: 1; }
+.publication-text {
+    min-width: 0;
+    flex: 1;
+    color: #3a3a3a;
+    font-size: 14.6px;
+    line-height: 1.72;
+    text-align: left;
+}
+.papertitle {
+    display: block;
+    margin: 0 0 7px;
+    color: #222;
+    font-size: 16.4px;
+    line-height: 1.42;
+    font-weight: 700;
+}
+.papertitle.compact-title { margin-bottom: 1px; }
+.publication-text em { color: #454545; }
+.publication-text > a {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 0 1px;
+    color: var(--accent);
+    font-size: 13.8px;
+}
+.publication-text > a:hover { color: var(--accent-deep); }
+.publication-text p {
+    margin: 10px 0 0;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(0,0,0,.10);
+    color: #666;
+    font-size: 13.6px;
+    line-height: 1.72;
+    text-align: justify;
+}
+
+/* --- Lightbox --- */
+#lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: rgba(0,0,0,.82);
+    backdrop-filter: blur(8px);
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity .22s ease;
+}
+#lightbox.active { display: flex; }
+#lightbox img {
+    max-width: min(94vw, 1300px);
+    max-height: 90vh;
+    border-radius: 7px;
+    box-shadow: 0 18px 55px rgba(0,0,0,.42);
+    transform: scale(.94);
+    transition: transform .22s ease;
+}
+
+/* --- Footer and back-to-top --- */
+.footer-note {
+    margin: 34px auto 0;
+    padding: 26px 18px 4px;
+    border-top: 1px solid var(--line-soft);
+    color: #999;
+    text-align: center;
+    font-size: 12.5px;
+}
+.footer-note p { margin: 0; }
+.footer-note a { color: #a66c18; }
+
+#backToTop {
+    position: fixed;
+    right: 26px;
+    bottom: 26px;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(60,60,60,.76);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(14px);
+    box-shadow: 0 3px 13px rgba(0,0,0,.19);
+    transition: opacity .25s ease, visibility .25s ease, transform .25s ease, background .18s ease;
+}
+#backToTop.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+#backToTop:hover { background: rgba(40,40,40,.92); transform: translateY(-2px); }
+#backToTop svg { width: 20px; height: 20px; }
+
+@media (max-width: 1320px) {
+    .section-drip-nav { display: none; }
+    .mobile-section-nav {
+        position: sticky;
+        z-index: 75;
+        top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto 18px;
+        padding: 6px;
+        border: 1px solid rgba(0,0,0,.09);
+        border-radius: 999px;
+        background: rgba(255,255,255,.87);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 4px 16px rgba(0,0,0,.055);
+    }
+    .mobile-section-nav a {
+        padding: 5px 10px;
+        border-radius: 999px;
+        color: #555;
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+    .mobile-section-nav a.active,
+    .mobile-section-nav a:hover { background: var(--accent-soft); color: var(--accent-deep); }
+}
+
+@media (max-width: 820px) {
+    body { font-size: 15px; }
+    .main-container { width: min(100% - 24px, 1040px); padding-top: 14px; }
+    .hero-section {
+        flex-direction: column;
+        gap: 24px;
+        padding: 20px 12px 32px;
+        text-align: center;
+    }
+    .hero-info { align-items: center; text-align: center; }
+    .hero-photo img { width: 190px; height: 248px; }
+    .hero-name { font-size: 36px; }
+    .hero-subtitle { font-size: 16px; }
+    .hero-links { justify-content: center; gap: 8px 17px; }
+
+    .about-section,
+    #photo-wall-section,
+    #news-section,
+    #publications-section { padding: 25px 20px; }
+    h2 { margin-bottom: 22px; font-size: 25px; }
+    .about-section p { font-size: 15.4px; line-height: 1.88; text-align: left; }
+
+    .publication-row { flex-direction: column; align-items: stretch; gap: 18px; padding: 16px; }
+    .publication-image { width: 100%; max-width: 480px; margin: 0 auto; flex-basis: auto; }
+    .publication-text { font-size: 14.3px; }
+    .publication-text p { text-align: left; }
+    .carousel-btn { width: 38px; height: 38px; }
+}
+
+@media (max-width: 520px) {
+    .main-container { width: min(100% - 18px, 1040px); }
+    .mobile-section-nav {
+        top: 7px;
+        gap: 2px;
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        scrollbar-width: none;
+    }
+    .mobile-section-nav::-webkit-scrollbar { display: none; }
+    .mobile-section-nav { -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+    .mobile-section-nav a { flex: 0 0 auto; padding: 5px 9px; }
+    .about-section,
+    #photo-wall-section,
+    #news-section,
+    #publications-section { padding: 22px 16px; border-radius: 10px; }
+    .hero-section { margin-bottom: 8px; }
+    .hero-photo img { width: 170px; height: 222px; }
+    .hero-name { font-size: 32px; }
+    .news-item { gap: 12px; }
+    .news-body p { font-size: 14.6px; }
+    .news-body p > strong:first-child { display: inline; padding: 0; border: 0; background: none; color: #7c5b20; font-size: inherit; }
+    #backToTop { right: 16px; bottom: 16px; width: 40px; height: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+</style>
+
+<style>
+/* =========================================================
+   Second-pass visual refinement
+   - Keeps the reference template's warm academic language
+   - Re-centers the hero as one visual unit
+   - Restores a more comfortable reading size
+   - Preserves responsive/mobile behavior
+   ========================================================= */
+
+:root {
+    --section-shadow: 0 5px 20px rgba(50, 42, 30, 0.045);
+    --card-shadow: 0 2px 10px rgba(45, 38, 28, 0.035);
+}
+
+body {
+    font-size: 17px;
+    line-height: 1.82;
+}
+
+.main-container {
+    width: min(100% - 40px, 1080px);
+    padding-top: 34px;
+}
+
+/* Hero: keep the portrait and profile copy visually grouped and centered. */
+.hero-section {
+    width: min(100%, 960px);
+    justify-content: center;
+    gap: clamp(74px, 8vw, 104px);
+    margin: 0 auto 24px;
+    padding: 38px 24px 48px;
+}
+
+.hero-info {
+    flex: 0 1 470px;
+}
+
+.hero-photo img {
+    width: 220px;
+    height: 286px;
+    border-radius: 11px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.09);
+}
+
+.hero-name {
+    margin-bottom: 16px;
+    font-size: clamp(40px, 4.3vw, 50px);
+    letter-spacing: .055em;
+}
+
+.hero-subtitle {
+    margin-bottom: 26px;
+    color: #505050;
+    font-size: 19px;
+    line-height: 1.72;
+}
+
+.hero-links {
+    gap: 10px 24px;
+    font-size: 15.5px;
+}
+
+.hero-links svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Sections: slightly quieter containers = more "academic homepage", less dashboard. */
+.about-section,
+#photo-wall-section,
+#news-section,
+#publications-section {
+    margin-top: 28px;
+    padding: 36px 38px;
+    border-color: rgba(45, 38, 28, 0.085);
+    border-radius: 11px;
+    background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.90));
+    box-shadow: var(--section-shadow);
+}
+
+h2 {
+    margin-bottom: 28px;
+    padding-bottom: 8px;
+    font-size: 30px;
+    letter-spacing: .015em;
+}
+
+h2::after {
+    height: 3px;
+    opacity: .92;
+}
+
+.about-section p {
+    margin-bottom: 1.12em;
+    color: #383838;
+    font-size: 17.2px;
+    line-height: 1.96;
+}
+
+.about-section .about-lead {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top-color: rgba(0,0,0,.09);
+}
+
+.about-section .about-lead > strong:first-child {
+    font-size: 18px;
+}
+
+/* Carousel: just a little more breathing room; interaction is unchanged. */
+.carousel-container {
+    border-radius: 11px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.11);
+}
+
+/* News: improve readability without making the timeline visually heavier. */
+.news-item {
+    gap: 16px;
+    padding: 10px 13px 10px 0;
+}
+
+.news-dot {
+    margin-top: 10px;
+}
+
+.news-body { overflow-wrap: anywhere; }
+
+.news-body p {
+    color: #3a3a3a;
+    font-size: 16.2px;
+    line-height: 1.72;
+}
+
+.news-body p > strong:first-child {
+    padding: 2px 8px 3px;
+    font-size: 13px;
+}
+
+/* Publications: preserve the existing card structure, but calm the borders/shadows. */
+#publications-section {
+    padding-bottom: 22px;
+}
+
+.publication-row {
+    gap: 32px;
+    margin-bottom: 20px;
+    padding: 21px 22px;
+    border-color: rgba(42, 35, 25, 0.105);
+    border-radius: 9px;
+    box-shadow: var(--card-shadow);
+}
+
+.publication-row:hover {
+    transform: translateY(-1px);
+    border-color: rgba(251,165,36,.40);
+    box-shadow: 0 9px 24px rgba(50,42,30,.075);
+}
+
+.publication-image {
+    flex-basis: 37%;
+    max-width: 360px;
+    border-radius: 7px;
+}
+
+.publication-text {
+    overflow-wrap: anywhere;
+    font-size: 15.5px;
+    line-height: 1.76;
+}
+
+.papertitle {
+    margin-bottom: 8px;
+    font-size: 17.6px;
+    line-height: 1.45;
+}
+
+.publication-text > a {
+    font-size: 14.5px;
+}
+
+.publication-text p {
+    margin-top: 11px;
+    padding-top: 11px;
+    color: #626262;
+    font-size: 14.6px;
+    line-height: 1.78;
+}
+
+.footer-note {
+    margin-top: 40px;
+    font-size: 13px;
+}
+
+/* Medium desktop / tablet: retain the compact sticky section navigation. */
+@media (max-width: 1320px) {
+    .mobile-section-nav {
+        margin-bottom: 20px;
+    }
+}
+
+/* Tablet and phone: portrait stacks above copy, centered, with touch-friendly spacing. */
+@media (max-width: 820px) {
+    body {
+        font-size: 16px;
+        line-height: 1.78;
+    }
+
+    .main-container {
+        width: min(100% - 26px, 1080px);
+        padding-top: 14px;
+    }
+
+    .hero-section {
+        width: 100%;
+        gap: 23px;
+        margin-bottom: 10px;
+        padding: 20px 12px 32px;
+    }
+
+    .hero-info {
+        flex: 1 1 auto;
+    }
+
+    .hero-photo img {
+        width: 188px;
+        height: 245px;
+    }
+
+    .hero-name {
+        margin-bottom: 12px;
+        font-size: 38px;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 21px;
+        font-size: 17px;
+        line-height: 1.68;
+    }
+
+    .hero-links {
+        justify-content: center;
+        gap: 8px 18px;
+        font-size: 14.5px;
+    }
+
+    .about-section,
+    #photo-wall-section,
+    #news-section,
+    #publications-section {
+        margin-top: 22px;
+        padding: 27px 22px;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(50,42,30,.035);
+    }
+
+    h2 {
+        margin-bottom: 23px;
+        font-size: 27px;
+    }
+
+    .about-section p {
+        font-size: 16.2px;
+        line-height: 1.90;
+        text-align: left;
+    }
+
+    .about-section .about-lead > strong:first-child {
+        font-size: 16.9px;
+    }
+
+    .news-body p {
+        font-size: 15.4px;
+        line-height: 1.70;
+    }
+
+    .publication-row {
+        gap: 19px;
+        padding: 17px;
+    }
+
+    .publication-text {
+        font-size: 15px;
+        line-height: 1.74;
+    }
+
+    .papertitle {
+        font-size: 17px;
+    }
+
+    .publication-text p {
+        font-size: 14.4px;
+        line-height: 1.74;
+    }
+}
+
+@media (max-width: 520px) {
+    .main-container {
+        width: min(100% - 18px, 1080px);
+    }
+
+    .mobile-section-nav {
+        padding: 5px;
+    }
+
+    .mobile-section-nav a {
+        padding: 5px 9px;
+        font-size: 12px;
+    }
+
+    .hero-section {
+        padding: 16px 10px 28px;
+    }
+
+    .hero-photo img {
+        width: 168px;
+        height: 219px;
+    }
+
+    .hero-name {
+        font-size: 34px;
+    }
+
+    .hero-subtitle {
+        font-size: 16.2px;
+    }
+
+    .hero-links {
+        gap: 8px 15px;
+        font-size: 14px;
+    }
+
+    .about-section,
+    #photo-wall-section,
+    #news-section,
+    #publications-section {
+        padding: 23px 17px;
+    }
+
+    h2 {
+        font-size: 25.5px;
+    }
+
+    .about-section p {
+        font-size: 15.8px;
+        line-height: 1.86;
+    }
+
+    .news-item {
+        gap: 12px;
+    }
+
+    .news-body p {
+        font-size: 15px;
+    }
+
+    .publication-row {
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .publication-text {
+        font-size: 14.6px;
+    }
+
+    .papertitle {
+        font-size: 16.5px;
+    }
+
+    .publication-text p {
+        font-size: 14px;
+    }
+}
+</style>
+
 </head>
-
 <body>
-    <div class="main-container">
-        
-        <div class="hero-section">
-            <div class="hero-photo">
-                <img alt="夏靖远" src="images/Xia.jpg">
-            </div>
-            <div class="hero-info">
-                <h1 class="hero-name">夏靖远</h1>
-                <div class="hero-subtitle">
-                    副教授 &nbsp;|&nbsp; 博士生导师<br>
+<nav aria-label="页面章节导航" class="section-drip-nav"><a href="#about-section"><span>个人简介</span></a><a href="#photo-wall-section"><span>团队风采</span></a><a href="#news-section"><span>新闻动态</span></a><a href="#publications-section"><span>成果发表</span></a></nav><div class="main-container"><nav aria-label="页面章节导航" class="mobile-section-nav"><a href="#about-section">个人简介</a><a href="#photo-wall-section">团队风采</a><a href="#news-section">新闻动态</a><a href="#publications-section">成果发表</a></nav>
+<div class="hero-section">
+<div class="hero-photo">
+<img alt="夏靖远" decoding="async" fetchpriority="high" src="images/Xia.jpg"/>
+</div>
+<div class="hero-info">
+<h1 class="hero-name">夏靖远</h1>
+<div class="hero-subtitle">
+                    副教授  |  博士生导师<br/>
                     国防科技大学 电子科学学院
                 </div>
-                <div class="hero-links">
-                    <a href="mailto:j.xia10@nudt.edu.cn">Email</a>
-                    <a href="https://scholar.google.com.hk/citations?user=Pdt-EUAAAAAJ&hl=en">Google Scholar</a>
-                    <a href="https://github.com/XYLGroup">GitHub</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="about-section">
-            <h2>个人简介</h2>
-            
-            <p><strong>一、 我是谁</strong><br>
+<div class="hero-links">
+<a href="mailto:j.xia10@nudt.edu.cn"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m3 7 9 6 9-6"></path></svg>Email</a>
+<a href="https://scholar.google.com.hk/citations?user=Pdt-EUAAAAAJ&amp;hl=en"><svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M12 3 1.5 9 12 15 22.5 9 12 3Z"></path><path d="M5 12.1v4.2c0 1.2 3.1 3.2 7 3.2s7-2 7-3.2v-4.2l-7 4-7-4Z"></path></svg>Google Scholar</a>
+<a href="https://github.com/XYLGroup"><svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M12 .5C5.7.5.6 5.6.6 11.9c0 5 3.3 9.3 7.9 10.8.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.5 2.7 3.2 1.9.1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.6.1-3.1 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.8.1 3.1.8.9 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.4 5.6 18.3.5 12 .5Z"></path></svg>GitHub</a>
+</div>
+</div>
+</div>
+<div class="about-section page-section" id="about-section">
+<h2>个人简介</h2>
+<p class="about-lead"><strong>一、 我是谁</strong><br/>
             我是一名扎根于人工智能与信号处理交叉领域的科研工作者，现任国防科技大学电子科学学院副教授（博导）。我于2020年在伦敦帝国理工学院取得博士学位，本硕皆师从国防科技大学电子科学学院黎湘院士。</p>
-            
-            <p><strong>二、 研究方向与学术追求：在理论与真实物理世界的交汇处“死磕”</strong><br>
+<p class="about-lead"><strong>二、 研究方向与学术追求：在理论与真实物理世界的交汇处“死磕”</strong><br/>
             我的研究根植于机器学习理论的底层逻辑（特别是统计学习与优化理论）。博士期间，我主攻传统非凸优化理论与神经网络模型的深度结合，建立了一套“学习辅助的灰箱优化”理论体系，致力于在完整保留问题模型的前提下，实现无监督、无预训练的逆问题求解。</p>
-            
-            <p>如今，课题组的研究进一步聚焦与延伸，旨在解决智能体与多模态大模型（VLM）在垂直场景中的落地难题。我们的应用主战场包括：<br>
-            &bull; <strong>底层视觉：</strong>复杂条件下的图像与视频增强、恢复；<br>
-            &bull; <strong>时序信号分析：</strong>雷达信号、传感器数据等高维时间序列解析；<br>
-            &bull; <strong>目标检测识别：</strong>复杂物理场景下的高鲁棒性目标感知。</p>
-            
-            <p>在学术品味上，我们坚守“理论与工程并重”——既追求具备高度可解释性的理论创新，更注重解决真实物理世界中的复杂信号处理难题。因为我极度享受与学生共探前沿的快感，课题组的科研图景会始终紧贴最新技术浪潮，进行破局与应用创新。</p>
-
-            <p><strong>三、 人才培养理念：授人以渔，重塑系统性科研思维</strong><br>
+<p>如今，课题组的研究进一步聚焦与延伸，旨在解决智能体与多模态大模型（VLM）在垂直场景中的落地难题。我们的应用主战场包括：<br/>
+            • <strong>底层视觉：</strong>复杂条件下的图像与视频增强、恢复；<br/>
+            • <strong>时序信号分析：</strong>雷达信号、传感器数据等高维时间序列解析；<br/>
+            • <strong>目标检测识别：</strong>复杂物理场景下的高鲁棒性目标感知。</p>
+<p>在学术品味上，我们坚守“理论与工程并重”——既追求具备高度可解释性的理论创新，更注重解决真实物理世界中的复杂信号处理难题。因为我极度享受与学生共探前沿的快感，课题组的科研图景会始终紧贴最新技术浪潮，进行破局与应用创新。</p>
+<p class="about-lead"><strong>三、 人才培养理念：授人以渔，重塑系统性科研思维</strong><br/>
             我极度排斥学术投机主义与精致利己主义，更享受“从零开始”培养真正热爱科研的学者。比起单纯的知识灌输，我更看重“授人以渔”。你的第一项科研工作，我会亲自给方案、推代码、逐字rewrite论文；但在中后期，我期待你能独立自主地向未知的科技深水区发起冲锋。</p>
-            
-            <p>我将“严谨、踏实、讲逻辑、有条理、知辩证”具象化为课题组的方法论基石，并贯穿培养始终：<br>
-            &bull; <strong>严谨：</strong>对数据和推导心存敬畏，绝不放过任何一个异常的实验结果；<br>
-            &bull; <strong>踏实：</strong>摒弃浮躁，在代码的泥土与浩瀚的文献中夯实底层基础；<br>
-            &bull; <strong>讲逻辑：</strong>构建清晰的科研叙事，知其然，更知其所以然；<br>
-            &bull; <strong>有条理：</strong>在多线任务与海量实验中，保持拆解问题、有条不紊的工程管理能力；<br>
-            &bull; <strong>知辩证：</strong>以辩证的科学方法论审视每一场失败与突破，打破思维定势。</p>
-            
-            <p>我希望你在这里收获的不仅仅是几篇高水平Paper，更是系统性探索未知的底层能力，以及日积跬步、以致千里的成长满足感。</p>
-
-            <p><strong>四、 个人性格与团队文化：锋芒与温情并存</strong><br>
+<p>我将“严谨、踏实、讲逻辑、有条理、知辩证”具象化为课题组的方法论基石，并贯穿培养始终：<br/>
+            • <strong>严谨：</strong>对数据和推导心存敬畏，绝不放过任何一个异常的实验结果；<br/>
+            • <strong>踏实：</strong>摒弃浮躁，在代码的泥土与浩瀚的文献中夯实底层基础；<br/>
+            • <strong>讲逻辑：</strong>构建清晰的科研叙事，知其然，更知其所以然；<br/>
+            • <strong>有条理：</strong>在多线任务与海量实验中，保持拆解问题、有条不紊的工程管理能力；<br/>
+            • <strong>知辩证：</strong>以辩证的科学方法论审视每一场失败与突破，打破思维定势。</p>
+<p>我希望你在这里收获的不仅仅是几篇高水平Paper，更是系统性探索未知的底层能力，以及日积跬步、以致千里的成长满足感。</p>
+<p class="about-lead"><strong>四、 个人性格与团队文化：锋芒与温情并存</strong><br/>
             关于我这个人：嘴碎、性急、嗓门大、好为人师；毒舌、强势、讲原则、爱请吃饭。</p>
-            
-            <p>我自己读博时淋过雨，所以绝不会给你泼开水。但在科研标准上，我信奉“金杯共汝饮，学术不相饶”。生活里，我们可以一起开黑、旅游，见天地、见众生、见自己；但在学术上，我对质量与逻辑的把控绝对苛刻。</p>
-            
-            <p>关于支撑条件：得益于团队承担的重大科研任务，我们拥有远超基础教学需求的充沛计算资源（高性能GPU集群）、一流的实验环境以及充足的学术交流经费，足以支撑你任何富有想象力的科研尝试。在任务安排上，个人科研课题与项目工作的时间配比严格控制在8:2，我们用完备的软硬件保障，坚定守护你的自由探索空间。</p>
-
-            <p><strong>五、 写在最后</strong><br>
+<p>我自己读博时淋过雨，所以绝不会给你泼开水。但在科研标准上，我信奉“金杯共汝饮，学术不相饶”。生活里，我们可以一起开黑、旅游，见天地、见众生、见自己；但在学术上，我对质量与逻辑的把控绝对苛刻。</p>
+<p>关于支撑条件：得益于团队承担的重大科研任务，我们拥有远超基础教学需求的充沛计算资源（高性能GPU集群）、一流的实验环境以及充足的学术交流经费，足以支撑你任何富有想象力的科研尝试。在任务安排上，个人科研课题与项目工作的时间配比严格控制在8:2，我们用完备的软硬件保障，坚定守护你的自由探索空间。</p>
+<p class="about-lead"><strong>五、 写在最后</strong><br/>
             我不挑剔你的科研基础。只要你是踏实勤奋、自我驱动的坚守者，坚信“功不唐捐、玉汝于成”，我们就是同路人。</p>
-            
-            <p>欢迎随时通过邮件与我联系，咨询任何你感兴趣的课题方向或团队招录细节。</p>
-        </div>
+<p>欢迎随时通过邮件与我联系，咨询任何你感兴趣的课题方向或团队招录细节。</p>
+</div>
+<div class="page-section" id="photo-wall-section">
+<h2>团队风采</h2>
+<div class="carousel-container" id="carousel-container">
+</div>
+</div>
+<div class="page-section" id="news-section">
+<h2>新闻动态</h2>
 
-        <div id="photo-wall-section">
-            <h2>团队风采</h2>
-            <div class="carousel-container" id="carousel-container">
-                </div>
-        </div>
 
-        <div id="news-section">
-            <h2>新闻动态</h2>
-            <p><strong>2026年7月：</strong> 论文 <strong>A Learning-aided Unsupervised Method for Sparse Aperture ISAR Imaging and Autofocusing</strong> 入选 <strong>ESI高被引论文</strong>！</p>
-            <p><strong>2026年7月：</strong> 论文 <strong>Machines Serve Human: A Novel Variable Human-machine Collaborative Compression Framework</strong> 被 <strong>TIP</strong> 接收！</p>
-            <p><strong>2026年6月：</strong> 论文 <strong>Efficient Image Dehazing via Prior-Guided Hierarchical Harmonization Network</strong> 被 <strong>TCSVT</strong> 接收！</p>
-            <p><strong>2026年5月：</strong> 论文 <strong>Meta-learning based Domain Prior with Application to Optical-ISAR Image Translation</strong> 入选 <strong>ESI高被引论文</strong>！</p>
-            <p><strong>2026年5月：</strong> 一篇论文被 <strong>ICML</strong> 录用！</p>
-            <p><strong>2026年5月：</strong> 论文 <strong>Spectrally Spatially Coupled Dynamic Reduction for Efficient Hyperspectral Image Super Resolution</strong> 被 <strong>TGRS</strong> 接收！</p>
-            <p><strong>2026年4月：</strong> 论文 <strong>Metalearning-Based Alternating Minimization Algorithm for Nonconvex Optimization</strong> 入选 <strong>ESI高被引论文</strong>！</p>
-            <p><strong>2026年4月：</strong> 论文 <strong>Band-kernel Stochastic Learning for Unsupervised Blind Hyperspectral Image Super-Resolution</strong> 被 <strong>TPAMI</strong> 录用！</p>
-            <p><strong>2026年2月：</strong> 论文 <strong>Scan Clusters, Not Pixels: A Cluster-Centric Paradigm for Efficient Ultra-high-definition Image Restoration</strong> 被 <strong>CVPR 2026</strong> 录用！</p>
-            <p><strong>2026年1月：</strong> 祝贺杨志雄和孔得荣获批 <strong>湖南省自然科学基金青年学生基础研究项目</strong>！</p>
-            <p><strong>2025年12月：</strong> 祝贺杨志雄获批 <strong>国家自然科学基金青年学生基础研究项目（博士研究生）</strong> ！</p>
-            <p><strong>2025年12月：</strong> 论文 <strong>A prototype-based semi-supervised learning method for few-shot SAR target recognition</strong> 被 <strong>J-STARS</strong> 录用！</p>
-            <p><strong>2025年11月：</strong> 论文 <strong>Ultra-High-Definition Image Restoration via High Frequency Enhanced Transformer</strong> 被 <strong>TCSVT</strong> 录用！</p>
-            <p><strong>2025年11月：</strong> 论文 <strong>Dynamic Semantic Tokenization for Time Series via Elastic Sampling on Physics-aware Perception</strong> 被 <strong>AAAI 2026</strong> 录用！</p>
-            <p><strong>2025年10月：</strong> 论文 <strong>A Learning-aided Unsupervised Method for Sparse Aperture ISAR Imaging and Autofocusing</strong> 被 <strong>TAES</strong> 录用！</p>
-            <p><strong>2025年9月：</strong> 论文 <strong>Luminance-Aware Statistical Quantization: Unsupervised Hierarchical Learning for Illumination Enhancement</strong> 被 <strong>NeurIPS 2025</strong> 录用！</p>
-            <p><strong>2025年6月：</strong> 一篇论文被 <strong>TIP</strong> 录用！</p>
-            <p><strong>2025年5月：</strong> TPAMI 2024 论文 <strong>Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</strong> 入选 <strong>ESI高被引论文 (Top 1%)</strong> 及 <strong>热点论文 (Top 0.1%)</strong>。</p>
-            <p><strong>2025年4月：</strong> 两名本科生的工作被 <strong>GRSL</strong> 录用！</p>
-            <p><strong>2025年3月：</strong> 一篇论文被 <strong>ICML</strong> 录用！</p>
-            <p><strong>2024年12月：</strong> 论文 <strong>A Cross-Modal Multi-Attitude Framework for the Generation of Space Target ISAR Images</strong> 被 <strong>ICASSP</strong> 录用！</p>
-            <p><strong>2024年5月：</strong> 论文 <strong>Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</strong> 被 <strong>TPAMI</strong> 录用！</p>
-            <p><strong>2024年3月：</strong> 论文 <strong>A Dynamic Kernel Prior Model for Unsupervised Blind Image Super-Resolution</strong> 被 <strong>CVPR</strong> 录用！</p>
-            <p><strong>2023年9月：</strong> 论文 <strong>Meta-Learning Based Domain Prior with Application to Optical-ISAR Image Translation</strong> 被 <strong>TCSVT</strong> 录用！</p>
-            <p><strong>2023年9月：</strong> 论文 <strong>Meta-Learning Based Alternating Minimization Algorithm for Nonconvex Optimization</strong> 被 <strong>TNNLS</strong> 录用！</p>
-        </div>
 
-        <div>
-            <h2>成果发表</h2>
 
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2026-TCSVT.png" alt="Preview of prior-guided dehazing paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Efficient Image Dehazing via Prior-Guided Hierarchical Harmonization Network</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="news-list"><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2026年8月：</strong> 论文 <strong>Unlocking Optical Prior: Spectrum-Guided Knowledge Transfer for SAR Generalized Category Discovery</strong> 被 <strong>TCSVT</strong> 接收！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2026年7月：</strong> 论文 <strong>A Learning-aided Unsupervised Method for Sparse Aperture ISAR Imaging and Autofocusing</strong> 入选 <strong>ESI高被引论文</strong>！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2026年7月：</strong> 论文 <strong>Machines Serve Human: A Novel Variable Human-machine Collaborative Compression Framework</strong> 被 <strong>TIP</strong> 接收！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2026年6月：</strong> 论文 <strong>Efficient Image Dehazing via Prior-Guided Hierarchical Harmonization Network</strong> 被 <strong>TCSVT</strong> 接收！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2026年5月：</strong> 论文 <strong>Meta-learning based Domain Prior with Application to Optical-ISAR Image Translation</strong> 入选 <strong>ESI高被引论文</strong>！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2026年5月：</strong> 一篇论文被 <strong>ICML</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2026年5月：</strong> 论文 <strong>Spectrally Spatially Coupled Dynamic Reduction for Efficient Hyperspectral Image Super Resolution</strong> 被 <strong>TGRS</strong> 接收！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2026年4月：</strong> 论文 <strong>Metalearning-Based Alternating Minimization Algorithm for Nonconvex Optimization</strong> 入选 <strong>ESI高被引论文</strong>！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2026年4月：</strong> 论文 <strong>Band-kernel Stochastic Learning for Unsupervised Blind Hyperspectral Image Super-Resolution</strong> 被 <strong>TPAMI</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2026年2月：</strong> 论文 <strong>Scan Clusters, Not Pixels: A Cluster-Centric Paradigm for Efficient Ultra-high-definition Image Restoration</strong> 被 <strong>CVPR 2026</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2026年1月：</strong> 祝贺杨志雄和孔得荣获批 <strong>湖南省自然科学基金青年学生基础研究项目</strong>！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2025年12月：</strong> 祝贺杨志雄获批 <strong>国家自然科学基金青年学生基础研究项目（博士研究生）</strong> ！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2025年12月：</strong> 论文 <strong>A prototype-based semi-supervised learning method for few-shot SAR target recognition</strong> 被 <strong>J-STARS</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2025年11月：</strong> 论文 <strong>Ultra-High-Definition Image Restoration via High Frequency Enhanced Transformer</strong> 被 <strong>TCSVT</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2025年11月：</strong> 论文 <strong>Dynamic Semantic Tokenization for Time Series via Elastic Sampling on Physics-aware Perception</strong> 被 <strong>AAAI 2026</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2025年10月：</strong> 论文 <strong>A Learning-aided Unsupervised Method for Sparse Aperture ISAR Imaging and Autofocusing</strong> 被 <strong>TAES</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2025年9月：</strong> 论文 <strong>Luminance-Aware Statistical Quantization: Unsupervised Hierarchical Learning for Illumination Enhancement</strong> 被 <strong>NeurIPS 2025</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2025年6月：</strong> 一篇论文被 <strong>TIP</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2025年5月：</strong> TPAMI 2024 论文 <strong>Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</strong> 入选 <strong>ESI高被引论文 (Top 1%)</strong> 及 <strong>热点论文 (Top 0.1%)</strong>。</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2025年4月：</strong> 两名本科生的工作被 <strong>GRSL</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2025年3月：</strong> 一篇论文被 <strong>ICML</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2024年12月：</strong> 论文 <strong>A Cross-Modal Multi-Attitude Framework for the Generation of Space Target ISAR Images</strong> 被 <strong>ICASSP</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2024年5月：</strong> 论文 <strong>Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</strong> 被 <strong>TPAMI</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2024年3月：</strong> 论文 <strong>A Dynamic Kernel Prior Model for Unsupervised Blind Image Super-Resolution</strong> 被 <strong>CVPR</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2023年9月：</strong> 论文 <strong>Meta-Learning Based Domain Prior with Application to Optical-ISAR Image Translation</strong> 被 <strong>TCSVT</strong> 录用！</p></div></div><div class="news-item"><span aria-hidden="true" class="news-dot"></span><div class="news-body"><p><strong>2023年9月：</strong> 论文 <strong>Meta-Learning Based Alternating Minimization Algorithm for Nonconvex Optimization</strong> 被 <strong>TNNLS</strong> 录用！</p></div></div></div></div>
+<div class="page-section" id="publications-section">
+<h2>成果发表</h2>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of MCPT paper" decoding="async" loading="lazy" src="images/2026-MCPT.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Unlocking Optical Prior: Spectrum-Guided Knowledge Transfer for SAR Generalized Category Discovery</span>
+<strong>Jingyuan Xia</strong>, Ruikang Hu, Ye Li, Zhixiong Yang, Xu Lan, Zhejun Lu
+<br/> <em>IEEE Transactions on Circuits and Systems for Video Technology</em>, 2026
+<p>MCPT is a cross-modal pre-training framework that enables effective optical prior transfer for label-scarce SAR Generalized Category Discovery. This framework models cross-modal discrepancies in the frequency domain and employs discrepancy-aware feature refinement and contrastive alignment, improving SAR representation capability while achieving superior recognition performance across multiple mainstream datasets.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of prior-guided dehazing paper" decoding="async" loading="lazy" src="images/2026-TCSVT.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Efficient Image Dehazing via Prior-Guided Hierarchical Harmonization Network</span>
                     Chen Wu, Xiongfei Su, Yuning Cui, Mingyue Cui, Wenqi Ren, Jianhou Gan, Xin Yuan, Yulun Zhang, <strong>Jingyuan Xia<sup>*</sup></strong>
-                    <br> <em>IEEE Transactions on Circuits and Systems for Video Technology</em>, 2026
-                    <br> <a href="https://ieeexplore.ieee.org/document/11551587">Paper</a>
-                    <p>This paper proposes an efficient image dehazing network that embeds Dark Channel, Bright Channel, and Histogram Equalization priors as learnable operators rather than fixed shallow constraints. Through an asymmetric UNet with gated attention and dual bottlenecks, it hierarchically harmonizes physical priors with deep features, achieving state-of-the-art dehazing performance on 11 benchmarks with only 1.69M parameters and 17G FLOPs.</p>
-                </div>
-            </div>
-
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2026-VLASE-Workshop.png" alt="Preview of VLASE 2026 workshop slide">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle compact-title">从图像恢复到退化表征与特征治理</span>
-                    <em>VLASE 2026 未来终端影像 Workshop</em>
-                    <br> <a href="slides/%E4%BB%8E%E5%9B%BE%E5%83%8F%E6%81%A2%E5%A4%8D%E5%88%B0%E9%80%80%E5%8C%96%E8%A1%A8%E5%BE%81%E4%B8%8E%E7%89%B9%E5%BE%81%E6%B2%BB%E7%90%86-Valse%E6%8A%A5%E5%91%8A-%E5%A4%8F%E9%9D%96%E8%BF%9C.pdf">Slide</a>
-                    <p>本报告围绕“视觉好看并不等于证据可信、模型可消费”这一问题，面向未来终端影像中的低光、模糊、云雾、低分辨率和跨模态差异等不完美观测，系统讨论低质视觉从图像恢复走向证据组织的技术路径。报告首先从盲逆问题出发，将退化由待消除的噪声转化为影响采样、优化和信息选择的核心状态；随后以亮度、阴影、频谱退化和光学-SAR差异为例，说明如何把退化现象转化为可读取的状态表征；最后进一步讨论语义中心扫描、光谱-空间动态降维和多源特征暂存/释放等特征治理机制，从而为端侧系统构建可消费、可调度、可推理的视觉证据。（Code: spdf1111）</p>
-                </div>
-            </div>
-
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2026-S2CD-Net.png" alt="Preview of S2CD-Net paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Spectrally Spatially Coupled Dynamic Reduction for Efficient Hyperspectral Image Super Resolution</span>
+<br/> <em>IEEE Transactions on Circuits and Systems for Video Technology</em>, 2026
+                    <br/> <a href="https://ieeexplore.ieee.org/document/11551587">Paper</a>
+<p>This paper proposes an efficient image dehazing network that embeds Dark Channel, Bright Channel, and Histogram Equalization priors as learnable operators rather than fixed shallow constraints. Through an asymmetric UNet with gated attention and dual bottlenecks, it hierarchically harmonizes physical priors with deep features, achieving state-of-the-art dehazing performance on 11 benchmarks with only 1.69M parameters and 17G FLOPs.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of VLASE 2026 workshop slide" decoding="async" loading="lazy" src="images/2026-VLASE-Workshop.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle compact-title">从图像恢复到退化表征与特征治理</span>
+<em>VLASE 2026 未来终端影像 Workshop</em>
+<br/> <a href="slides/%E4%BB%8E%E5%9B%BE%E5%83%8F%E6%81%A2%E5%A4%8D%E5%88%B0%E9%80%80%E5%8C%96%E8%A1%A8%E5%BE%81%E4%B8%8E%E7%89%B9%E5%BE%81%E6%B2%BB%E7%90%86-Valse%E6%8A%A5%E5%91%8A-%E5%A4%8F%E9%9D%96%E8%BF%9C.pdf">Slide</a>
+<p>本报告围绕“视觉好看并不等于证据可信、模型可消费”这一问题，面向未来终端影像中的低光、模糊、云雾、低分辨率和跨模态差异等不完美观测，系统讨论低质视觉从图像恢复走向证据组织的技术路径。报告首先从盲逆问题出发，将退化由待消除的噪声转化为影响采样、优化和信息选择的核心状态；随后以亮度、阴影、频谱退化和光学-SAR差异为例，说明如何把退化现象转化为可读取的状态表征；最后进一步讨论语义中心扫描、光谱-空间动态降维和多源特征暂存/释放等特征治理机制，从而为端侧系统构建可消费、可调度、可推理的视觉证据。（Code: spdf1111）</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of S2CD-Net paper" decoding="async" loading="lazy" src="images/2026-S2CD-Net.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Spectrally Spatially Coupled Dynamic Reduction for Efficient Hyperspectral Image Super Resolution</span>
                     Lingyu Zheng, Jingyuan Xia, Zhixiong Yang, Chen Wu, Shengxi Li, Xin Deng, Mai Xu<sup>*</sup>
-                    <br> <em>IEEE Transactions on Geoscience and Remote Sensing (TGRS)</em>, 2026
-                    <br> <a href="https://ieeexplore.ieee.org/document/11498434">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11498434">PDF</a> / <a href="https://github.com/XYLGroup/S2CD-Net">Code</a>
-                    <p>This paper proposes S$^2$CD-Net, a spectrally-spatially coupled dynamic lightweight network for hyperspectral image super-resolution. To address the high-dimensional redundancy and heavy computational cost of existing methods, S$^2$CD-Net adopts a coupled reduction and independent learning paradigm: spectral selection and spatial compression collaboratively reduce cross-dimensional redundancy, while lightweight SS2D scanners perform efficient global modeling on compact spectral and spatial sequences. Experiments show that S$^2$CD-Net achieves competitive or superior reconstruction quality with significantly fewer parameters and lower computational complexity, offering an effective performance-efficiency trade-off for edge deployment.</p>
-                </div>
-            </div>
-
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2026-TPAMI-BKSR.png" alt="Preview of BKSR paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Band-kernel Stochastic Learning for Unsupervised Blind Hyperspectral Image Super-Resolution</span>
+<br/> <em>IEEE Transactions on Geoscience and Remote Sensing (TGRS)</em>, 2026
+                    <br/> <a href="https://ieeexplore.ieee.org/document/11498434">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=11498434">PDF</a> / <a href="https://github.com/XYLGroup/S2CD-Net">Code</a>
+<p>This paper proposes S$^2$CD-Net, a spectrally-spatially coupled dynamic lightweight network for hyperspectral image super-resolution. To address the high-dimensional redundancy and heavy computational cost of existing methods, S$^2$CD-Net adopts a coupled reduction and independent learning paradigm: spectral selection and spatial compression collaboratively reduce cross-dimensional redundancy, while lightweight SS2D scanners perform efficient global modeling on compact spectral and spatial sequences. Experiments show that S$^2$CD-Net achieves competitive or superior reconstruction quality with significantly fewer parameters and lower computational complexity, offering an effective performance-efficiency trade-off for edge deployment.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of BKSR paper" decoding="async" loading="lazy" src="images/2026-TPAMI-BKSR.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Band-kernel Stochastic Learning for Unsupervised Blind Hyperspectral Image Super-Resolution</span>
                     Zhixiong Yang, <strong>Jingyuan Xia<sup>*</sup></strong>, Shengxi Li, Lingyu Zheng, Shuanghui Zhang, Li Liu, Yaowen Fu, Yongxiang Liu
-                    <br> <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, 2026
-                    <br> <a href="https://ieeexplore.ieee.org/document/11475666">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11475666">PDF</a> / <a href="https://github.com/XYLGroup/BKSR">Code</a>
-                    <p>This paper proposes BKSR, an unsupervised blind hyperspectral image super-resolution framework built on a unified BKX-HMM model. By jointly optimizing band selection, kernel estimation, and image restoration through stochastic band exploration, test-time kernel learning, and robust restoration, it effectively addresses unknown degradations while alleviating the conventional complexity-performance trade-off.</p>
-                </div>
-            </div>
-
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2026-CVPR.png" alt="Preview of CVPR 2026 paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Scan Clusters, Not Pixels: A Cluster-Centric Paradigm for Efficient Ultra-high-definition Image Restoration</span>
+                    <br/> <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, 2026
+                    <br/> <a href="https://ieeexplore.ieee.org/document/11475666">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=11475666">PDF</a> / <a href="https://github.com/XYLGroup/BKSR">Code</a>
+<p>This paper proposes BKSR, an unsupervised blind hyperspectral image super-resolution framework built on a unified BKX-HMM model. By jointly optimizing band selection, kernel estimation, and image restoration through stochastic band exploration, test-time kernel learning, and robust restoration, it effectively addresses unknown degradations while alleviating the conventional complexity-performance trade-off.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of CVPR 2026 paper" decoding="async" loading="lazy" src="images/2026-CVPR.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Scan Clusters, Not Pixels: A Cluster-Centric Paradigm for Efficient Ultra-high-definition Image Restoration</span>
                     Chen Wu, Ling Wang, Zhuoran Zheng, Yuning Cui, Zhixiong Yang, Xiangyu Chen, Yue Zhang, Weidong Jiang, <strong>Jingyuan Xia<sup>*</sup></strong>
-                    <br> <em>CVPR</em>, 2026
-                     <br> <a href="https://arxiv.org/pdf/2602.21917v1.pdf">PDF</a> / <a href="https://github.com/5chen/C2SSM">Code</a>
-                    <p>This paper introduces C²SSM, a novel visual state space model for ultra-high-definition (UHD) image restoration. Unlike existing methods that scan every pixel, C²SSM adopts a cluster-centric paradigm: it first aggregates pixels into semantic clusters, then performs global modeling only on the cluster centroids, and finally diffuses the context back to all pixels. This significantly reduces computational cost while preserving high-quality restoration. Experiments on five UHD tasks show state-of-the-art performance with much lower complexity.</p>
-                </div>
-            </div>
-
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2025-J-STARS.png" alt="Preview of J-STARS paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">A prototype-based semi-supervised learning method for few-shot SAR target recognition</span>
+<br/> <em>CVPR</em>, 2026
+                     <br/> <a href="https://arxiv.org/pdf/2602.21917v1.pdf">PDF</a> / <a href="https://github.com/5chen/C2SSM">Code</a>
+<p>This paper introduces C²SSM, a novel visual state space model for ultra-high-definition (UHD) image restoration. Unlike existing methods that scan every pixel, C²SSM adopts a cluster-centric paradigm: it first aggregates pixels into semantic clusters, then performs global modeling only on the cluster centroids, and finally diffuses the context back to all pixels. This significantly reduces computational cost while preserving high-quality restoration. Experiments on five UHD tasks show state-of-the-art performance with much lower complexity.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of J-STARS paper" decoding="async" loading="lazy" src="images/2025-J-STARS.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">A prototype-based semi-supervised learning method for few-shot SAR target recognition</span>
                     Ruikang Hu, Xu Lan, Ye Li, Haiyan Zhu, Li Liu, <strong>Jingyuan Xia<sup>*</sup></strong>
-                    <br> <em>IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</em>, 2025
-                    <br> <a href="https://ieeexplore.ieee.org/abstract/document/11298499">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11298499">PDF</a>
-                    <p>WST-DRFSL is a semi-supervised few-shot target recognition framework that employs a dynamic refinement strategy. This strategy alternately refines the classifier and the entire model, accelerating convergence while achieving high recognition accuracy across extensive datasets.</p>
-                </div>
-            </div>
-            
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2025-TCSVT.png" alt="Preview of HiFormer paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Ultra-High-Definition Image Restoration via High Frequency Enhanced Transformer</span>
+<br/> <em>IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</em>, 2025
+                    <br/> <a href="https://ieeexplore.ieee.org/abstract/document/11298499">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=11298499">PDF</a>
+<p>WST-DRFSL is a semi-supervised few-shot target recognition framework that employs a dynamic refinement strategy. This strategy alternately refines the classifier and the entire model, accelerating convergence while achieving high recognition accuracy across extensive datasets.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of HiFormer paper" decoding="async" loading="lazy" src="images/2025-TCSVT.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Ultra-High-Definition Image Restoration via High Frequency Enhanced Transformer</span>
                     Chen Wu, Ling Wang, Zhuoran Zheng, Weidong Jiang, Yuning Cui<sup>*</sup>, <strong>Jingyuan Xia</strong>
-                    <br> <em>IEEE Transactions on Circuits and Systems for Video Technology</em>, 2025
-                    <br> <a href="https://ieeexplore.ieee.org/abstract/document/11263975">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11263975">PDF</a>
-                    <p>HiFormer is a dual-branch Transformer architecture designed for Ultra-High-Definition (UHD) image restoration. It combines a high-resolution branch that preserves fine details using directionally-sensitive large-kernel convolutions with a low-resolution branch that models global context via self-attention. This collaboration effectively compensates for high-frequency losses caused by downsampling and attention mechanisms, enabling efficient and high-fidelity restoration on consumer-grade GPUs.</p>
-                </div>
-            </div>
-
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2026-AAAI-PATK.png" alt="Preview of PATK paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Dynamic Semantic Tokenization for Time Series via Elastic Sampling on Physics-aware Perception</span>
+<br/> <em>IEEE Transactions on Circuits and Systems for Video Technology</em>, 2025
+                    <br/> <a href="https://ieeexplore.ieee.org/abstract/document/11263975">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=11263975">PDF</a>
+<p>HiFormer is a dual-branch Transformer architecture designed for Ultra-High-Definition (UHD) image restoration. It combines a high-resolution branch that preserves fine details using directionally-sensitive large-kernel convolutions with a low-resolution branch that models global context via self-attention. This collaboration effectively compensates for high-frequency losses caused by downsampling and attention mechanisms, enabling efficient and high-fidelity restoration on consumer-grade GPUs.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of PATK paper" decoding="async" loading="lazy" src="images/2026-AAAI-PATK.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Dynamic Semantic Tokenization for Time Series via Elastic Sampling on Physics-aware Perception</span>
                     Huaizhang Liao, Zhixiong Yang, <strong>Jingyuan Xia<sup>*</sup></strong>, Yuheng Sun, Yue Zhang, Shengxi Li, Yongxiang Liu
-                    <br> <em>AAAI</em>, 2026
-                    <br> <a href="https://ojs.aaai.org/index.php/AAAI/article/view/39517">Paper</a> / <a href="https://ojs.aaai.org/index.php/AAAI/article/view/39517/43478">PDF</a> / <a href="https://github.com/XYLGroup/PATK">Code</a>
-                    <p>PATK reformulates time series tokenization as a physics-aware semantic segmentation process over dual-domain signal distributions, leveraging a hidden Markov modeling mechanism to dynamically adapt token boundaries and achieve robust, interpretable representation learning across diverse temporal domains.</p>
-                </div>
-            </div>
-            
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2025-TAES-LAOF.png" alt="Preview of LAOF paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">A Learning-aided Unsupervised Method for Sparse Aperture ISAR Imaging and Autofocusing</span>
+                    <br/> <em>AAAI</em>, 2026
+                    <br/> <a href="https://ojs.aaai.org/index.php/AAAI/article/view/39517">Paper</a> / <a href="https://ojs.aaai.org/index.php/AAAI/article/view/39517/43478">PDF</a> / <a href="https://github.com/XYLGroup/PATK">Code</a>
+<p>PATK reformulates time series tokenization as a physics-aware semantic segmentation process over dual-domain signal distributions, leveraging a hidden Markov modeling mechanism to dynamically adapt token boundaries and achieve robust, interpretable representation learning across diverse temporal domains.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of LAOF paper" decoding="async" loading="lazy" src="images/2025-TAES-LAOF.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">A Learning-aided Unsupervised Method for Sparse Aperture ISAR Imaging and Autofocusing</span>
                     Zhixiong Yang, <strong>Jingyuan Xia<sup>*</sup></strong>, Shuanghui Zhang, Li Liu, Yaowen Fu, Yongxiang Liu
-                    <br> <em>IEEE Transactions on Aerospace and Electronic Systems</em>, 2025
-                    <br> <a href="https://ieeexplore.ieee.org/document/11202588" target="_blank">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11202588" target="_blank">PDF</a> / <a href="https://github.com/XYLGroup/LABP" target="_blank">Code</a>
-                    <p>LAOF is a general unsupervised radar imaging framework. We have verified the SOTA performance of LAOF in sparse aperture ISAR imaging and auto-focusing problems under extremely low sparsity rates, extremely low signal-to-noise ratios, and in real-world data.</p>
-                </div>
-            </div>
-            
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2025-NeurIPS-LASQ.png" alt="Preview of LASQ paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Luminance-Aware Statistical Quantization: Unsupervised Hierarchical Learning for Illumination Enhancement</span>
+                    <br/> <em>IEEE Transactions on Aerospace and Electronic Systems</em>, 2025
+                    <br/> <a href="https://ieeexplore.ieee.org/document/11202588" target="_blank">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=11202588" target="_blank">PDF</a> / <a href="https://github.com/XYLGroup/LABP" target="_blank">Code</a>
+<p>LAOF is a general unsupervised radar imaging framework. We have verified the SOTA performance of LAOF in sparse aperture ISAR imaging and auto-focusing problems under extremely low sparsity rates, extremely low signal-to-noise ratios, and in real-world data.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of LASQ paper" decoding="async" loading="lazy" src="images/2025-NeurIPS-LASQ.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Luminance-Aware Statistical Quantization: Unsupervised Hierarchical Learning for Illumination Enhancement</span>
                     Derong Kong, Zhixiong Yang, Shengxi Li, Shuaifeng Zhi, Li Liu, Zhen Liu, <strong>Jingyuan Xia<sup>*</sup></strong>
-                    <br> <em>NeurIPS</em>, 2025
-                    <br> <a href="https://neurips.cc/virtual/2025/poster/118433" target="_blank">Paper</a> / <a href="https://arxiv.org/pdf/2511.01510" target="_blank">PDF</a> / <a href="https://github.com/XYLGroup/LASQ" target="_blank">Code</a>
-                    <p>LASQ reformulates low-light image enhancement as a statistical sampling process over hierarchical luminance distributions, leveraging a diffusion-based forward process to autonomously model luminance transitions and achieve unsupervised, generalizable light restoration across diverse illumination conditions.</p>
-                </div>
-            </div>
-
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2025-GRSL-SAKE.png" alt="Preview of SAKE paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">SAKE: Unsupervised HSI Super-Resolution via Adaptive Kernel Estimation and Reconstruction</span>
+<br/> <em>NeurIPS</em>, 2025
+                    <br/> <a href="https://neurips.cc/virtual/2025/poster/118433" target="_blank">Paper</a> / <a href="https://arxiv.org/pdf/2511.01510" target="_blank">PDF</a> / <a href="https://github.com/XYLGroup/LASQ" target="_blank">Code</a>
+<p>LASQ reformulates low-light image enhancement as a statistical sampling process over hierarchical luminance distributions, leveraging a diffusion-based forward process to autonomously model luminance transitions and achieve unsupervised, generalizable light restoration across diverse illumination conditions.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of SAKE paper" decoding="async" loading="lazy" src="images/2025-GRSL-SAKE.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">SAKE: Unsupervised HSI Super-Resolution via Adaptive Kernel Estimation and Reconstruction</span>
                     Lingyu Zheng, Zhixiong Yang, Tong Qiu, <strong>Jingyuan Xia<sup>*</sup></strong>
-                    <br> <em>IEEE Geoscience and Remote Sensing Letters</em>, 2025
-                    <br> <a href="https://ieeexplore.ieee.org/abstract/document/11005589">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11005589">PDF</a>
-                    <p>SAKE performs unsupervised HSI super-resolution via adaptive blur kernel estimation, requiring no extra data and demonstrating superior generalization across scenarios.</p>
-                </div>
-            </div>
-            
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2025-GRSL-SAIG.png" alt="Preview of SAIG paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">SAIG: Semantic-Aware ISAR Generation via Component-Level Semantic Segmentation</span>
+<br/> <em>IEEE Geoscience and Remote Sensing Letters</em>, 2025
+                    <br/> <a href="https://ieeexplore.ieee.org/abstract/document/11005589">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=11005589">PDF</a>
+<p>SAKE performs unsupervised HSI super-resolution via adaptive blur kernel estimation, requiring no extra data and demonstrating superior generalization across scenarios.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of SAIG paper" decoding="async" loading="lazy" src="images/2025-GRSL-SAIG.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">SAIG: Semantic-Aware ISAR Generation via Component-Level Semantic Segmentation</span>
                     Yuxin Zhao, Huaizhang Liao, Derong Kong, Zhixiong Yang, <strong>Jingyuan Xia<sup>*</sup></strong>
-                    <br> <em>IEEE Geoscience and Remote Sensing Letters</em>, 2025
-                    <br> <a href="https://ieeexplore.ieee.org/document/10975048">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10975048">PDF</a>
-                    <p>SAIG introduces a semantic-aware generation framework using segmentation-based refinement to produce high-fidelity ISAR images from optical inputs.</p>
-                </div>
-            </div>
-
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2025-ICASSP-AORC.png" alt="Preview of AORC paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">A Cross-Modal Multi-Attitude Framework for the Generation of Space Target ISAR Images</span>
+<br/> <em>IEEE Geoscience and Remote Sensing Letters</em>, 2025
+                    <br/> <a href="https://ieeexplore.ieee.org/document/10975048">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10975048">PDF</a>
+<p>SAIG introduces a semantic-aware generation framework using segmentation-based refinement to produce high-fidelity ISAR images from optical inputs.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of AORC paper" decoding="async" loading="lazy" src="images/2025-ICASSP-AORC.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">A Cross-Modal Multi-Attitude Framework for the Generation of Space Target ISAR Images</span>
                     Derong Kong, Huaizhang Liao, <strong>Jingyuan Xia<sup>*</sup></strong>
-                    <br> <em>IEEE International Conference on Acoustics, Speech and Signal Processing</em>, 2025
-                    <br> <a href="https://ieeexplore.ieee.org/abstract/document/10888516">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10888516">PDF</a>
-                    <p>AORC learns attitude-aware latent representations and transforms them into high-fidelity ISAR images from optical inputs through a Brownian-Bridge-based diffusion process.</p>
-                </div>
-            </div>
-
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2025-Neurocomputing.png" alt="Preview of SIFT paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">The SIFT based two-stage STC decoupled learning method for long-tailed SAR target recognition</span>
+<br/> <em>IEEE International Conference on Acoustics, Speech and Signal Processing</em>, 2025
+                    <br/> <a href="https://ieeexplore.ieee.org/abstract/document/10888516">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10888516">PDF</a>
+<p>AORC learns attitude-aware latent representations and transforms them into high-fidelity ISAR images from optical inputs through a Brownian-Bridge-based diffusion process.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of SIFT paper" decoding="async" loading="lazy" src="images/2025-Neurocomputing.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">The SIFT based two-stage STC decoupled learning method for long-tailed SAR target recognition</span>
                     Ye Li, <strong>Jingyuan Xia<sup>*</sup></strong>, Huaizhang Liao, Xu Lan, Weidong Jiang
-                    <br> <em>Neurocomputing</em>, 2025
-                    <br> <a href="https://www.sciencedirect.com/science/article/pii/S0925231225004199">Paper</a> / <a href="https://www.sciencedirect.com/science/article/pii/S0925231225004199/pdfft">PDF</a> / <a href="https://github.com/XYLGroup/STC">Code</a>
-                    <p>STC leverages SIFT features and decoupled learning to tackle class imbalance in SAR target recognition, achieving strong generalization and SOTA performance.</p>
-                </div>
-            </div>
-
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2024-CVPR-poster.png" alt="Preview of DKP paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">A Dynamic Kernel Prior Model for Unsupervised Blind Image Super-Resolution</span>
+                    <br/> <em>Neurocomputing</em>, 2025
+                    <br/> <a href="https://www.sciencedirect.com/science/article/pii/S0925231225004199">Paper</a> / <a href="https://www.sciencedirect.com/science/article/pii/S0925231225004199/pdfft">PDF</a> / <a href="https://github.com/XYLGroup/STC">Code</a>
+<p>STC leverages SIFT features and decoupled learning to tackle class imbalance in SAR target recognition, achieving strong generalization and SOTA performance.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of DKP paper" decoding="async" loading="lazy" src="images/2024-CVPR-poster.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">A Dynamic Kernel Prior Model for Unsupervised Blind Image Super-Resolution</span>
                     Zhixiong Yang, <strong>Jingyuan Xia<sup>*</sup></strong>, Shengxi Li, Xinghua Huang, Shuanghui Zhang, Zhen Liu, Yaowen Fu, Yongxiang Liu
-                    <br> <em>CVPR</em>, 2024
-                    <br> <a href="https://arxiv.org/abs/2404.15620">Paper</a> / <a href="https://arxiv.org/pdf/2404.15620">PDF</a> / <a href="https://github.com/XYLGroup/DKP">Code</a>
-                    <p>The proposed DKP is a plug-and-play kernel estimation tool, which can be combined with the off-the-shelf image restoration model, e.g., DIP and Diffusion model, to realize unsupervised blind image super-resolution.</p>
-                </div>
-            </div>
+                    <br/> <em>CVPR</em>, 2024
+                    <br/> <a href="https://arxiv.org/abs/2404.15620">Paper</a> / <a href="https://arxiv.org/pdf/2404.15620">PDF</a> / <a href="https://github.com/XYLGroup/DKP">Code</a>
+<p>The proposed DKP is a plug-and-play kernel estimation tool, which can be combined with the off-the-shelf image restoration model, e.g., DIP and Diffusion model, to realize unsupervised blind image super-resolution.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of DDSR paper" decoding="async" loading="lazy" src="images/2024-Neural-Networks-DDSR.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Meta-learning based blind image super-resolution approach to different degradations</span>
+<br/> Zhixiong Yang, <strong>Jingyuan Xia<sup>*</sup></strong>, Shengxi Li, Wende Liu, Shuaifeng Zhi, Shuanghui Zhang, Li Liu, Yaowen Fu, Deniz Gündüz
+                    <br/> <em>Neural Networks</em>, 2024
+                    <br/> <a href="https://ieeexplore.ieee.org/document/10335726">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10335726">PDF</a> / <a href="https://github.com/XYLGroup/DDSR">Code</a>
+<p>DDSR is an unsupervised blind SISR method, which can handle different degradations, such as partial occlusion, noise, and low-light conditions.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of MLMC paper" decoding="async" loading="lazy" src="images/2024-TPAMI.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</span>
+<br/> <strong>Jingyuan Xia</strong>, Zhixiong Yang<sup>*</sup>, Shengxi Li, Shuanghui Zhang<sup>*</sup>, Yaowen Fu, Deniz Gündüz, Xiang Li
+                    <br/> <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, 2024
+                    <br/> <a href="https://ieeexplore.ieee.org/document/10533864">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10533864">PDF</a> / <a href="https://github.com/XYLGroup/MLMC">Code</a>
+<p>This paper proposes a plug-and-play blind image super-resolution method based on the Meta-learning and Markov Chain Monte Carlo, which contributes to preventing bad local optimal solutions from the optimization perspective.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of MLDP paper" decoding="async" loading="lazy" src="images/2023-TCSVT-MLDP.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Meta-learning based Domain Prior with Application to Optical-ISAR Image Translation</span>
+<br/> Huaizhang Liao, <strong>Jingyuan Xia<sup>*</sup></strong>, Zhixiong Yang, Fulin Pan, Zhen Liu, Yongxiang Liu
+                    <br/> <em>IEEE Transactions on Circuits and Systems for Video Technology</em>, 2023
+                    <br/> <a href="https://ieeexplore.ieee.org/document/10261220">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10261220">PDF</a> / <a href="https://github.com/XYLGroup/MLDP">Code</a>
+<p>The proposed MLDP aims to realize the image translation from optical domain to ISAR domain. To generate realistic ISAR images, MLDP learns the scattering distribution features and the classification identifying features in physical and task perspectives. Meanwhile, MLDP applies the meta-learning strategy to improve its generalization ability to generate ISAR images under limited training samples.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of MLAM paper" decoding="async" loading="lazy" src="images/2023-TNNLS-MLAM-two-level.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Metalearning-Based Alternating Minimization Algorithm for Nonconvex Optimization</span>
+<br/> <strong>Jingyuan Xia</strong>, Shengxi Li, Jun-Jie Huang<sup>*</sup>, Zhixiong Yang, Imad M. Jaimoukha, Deniz Gündüz
+                    <br/> <em>IEEE Transactions on Neural Networks and Learning Systems</em>, 2023
+                    <br/> <a href="https://ieeexplore.ieee.org/document/9760074">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=9760074">PDF</a> / <a href="https://github.com/XYLGroup/MLAM">Code</a>
+<p>This paper proposes a meta-learning-based alternating minimization (MLAM) method for nonconvex problems of multiple variables, which aims to minimize a part of the global losses over iterations instead of carrying minimization on each subproblem, and it tends to learn an adaptive strategy to replace the handcrafted counterpart resulting in advance on superior performance.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of LI-MKKM-MR paper" decoding="async" loading="lazy" src="images/2023-Cyber.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">Localized Incomplete Multiple Kernel k-Means With Matrix-Induced Regularization</span>
+<br/> Miaomiao Li<sup>*</sup>, <strong>Jingyuan Xia</strong>, Huiying Xu, Qing Liao, Xinzhong Zhu<sup>*</sup>, Xinwang Liu
+                    <br/> <em>IEEE Transactions on Cybernetics</em>, 2023
+                    <br/> <a href="https://ieeexplore.ieee.org/abstract/document/9626624">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=9626624">PDF</a>
+<p>An improved Localized incomplete multiple kernel k-means (LI-MKKM), called LI-MKKM with matrix-induced regularization (LI-MKKM-MR), is proposed by incorporating a matrix-induced regularization term to handle the correlation among base kernels. We theoretically show that the local kernel alignment is a special case of its global one with normalizing each base kernel matrices.</p>
+</div>
+</div>
+<div class="publication-row">
+<div class="publication-image">
+<img alt="Preview of LAGD paper" decoding="async" loading="lazy" src="images/2022-WCL.png"/>
+<div class="view-overlay">View</div>
+</div>
+<div class="publication-text">
+<span class="papertitle">A Learning-Aided Flexible Gradient Descent Approach to MISO Beamforming</span>
+<br/> Zhixiong Yang, <strong>Jingyuan Xia<sup>*</sup></strong>, Junshan Luo, Shuanghui Zhang<sup>*</sup>, Deniz Gündüz
+                    <br/> <em>IEEE Wireless Communications Letters</em>, 2022
+                    <br/> <a href="https://ieeexplore.ieee.org/document/9805773">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=9805773">PDF</a> / <a href="https://github.com/XYLGroup/LAGD">Code</a>
+<p>This letter proposes a learning aided gradient descent (LAGD) algorithm to solve the weighted sum rate (WSR) maximization problem for multiple-input single-output (MISO) beamforming. The proposed LAGD algorithm directly optimizes the transmit precoder through implicit gradient descent based iterations, at each of which the optimization strategy is determined by a neural network, and thus, is dynamic and adaptive.</p>
+</div>
+</div>
+</div>
+<div class="footer-note">
+<p>感谢 Dr. Jon Barron 分享本网页<a href="https://github.com/jonbarron/jonbarron_website">源代码</a>。</p>
+</div>
+</div>
+<div id="lightbox">
+<img alt="Enlarged publication image" src=""/>
+</div>
 
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2024-Neural-Networks-DDSR.png" alt="Preview of DDSR paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Meta-learning based blind image super-resolution approach to different degradations</span>
-                    <br> Zhixiong Yang, <strong>Jingyuan Xia<sup>*</sup></strong>, Shengxi Li, Wende Liu, Shuaifeng Zhi, Shuanghui Zhang, Li Liu, Yaowen Fu, Deniz Gündüz
-                    <br> <em>Neural Networks</em>, 2024
-                    <br> <a href="https://ieeexplore.ieee.org/document/10335726">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10335726">PDF</a> / <a href="https://github.com/XYLGroup/DDSR">Code</a>
-                    <p>DDSR is an unsupervised blind SISR method, which can handle different degradations, such as partial occlusion, noise, and low-light conditions.</p>
-                </div>
-            </div>
+<button aria-label="回到顶部" id="backToTop" title="回到顶部" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="m18 15-6-6-6 6"></path></svg></button><script>
+// ==========================================
+// 团队照片墙配置（PPT轮播图）- 懒加载优化版
+// ==========================================
+const rawActivityPhotos = Array.from({length: 62}, (_, i) => `activity/${i + 1}.webp`);
 
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2024-TPAMI.png" alt="Preview of MLMC paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Blind Super-Resolution Via Meta-Learning and Markov Chain Monte Carlo Simulation</span>
-                    <br> <strong>Jingyuan Xia</strong>, Zhixiong Yang<sup>*</sup>, Shengxi Li, Shuanghui Zhang<sup>*</sup>, Yaowen Fu, Deniz Gündüz, Xiang Li
-                    <br> <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, 2024
-                    <br> <a href="https://ieeexplore.ieee.org/document/10533864">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10533864">PDF</a> / <a href="https://github.com/XYLGroup/MLMC">Code</a>
-                    <p>This paper proposes a plug-and-play blind image super-resolution method based on the Meta-learning and Markov Chain Monte Carlo, which contributes to preventing bad local optimal solutions from the optimization perspective.</p>
-                </div>
-            </div>
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
 
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2023-TCSVT-MLDP.png" alt="Preview of MLDP paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Meta-learning based Domain Prior with Application to Optical-ISAR Image Translation</span>
-                    <br> Huaizhang Liao, <strong>Jingyuan Xia<sup>*</sup></strong>, Zhixiong Yang, Fulin Pan, Zhen Liu, Yongxiang Liu
-                    <br> <em>IEEE Transactions on Circuits and Systems for Video Technology</em>, 2023
-                    <br> <a href="https://ieeexplore.ieee.org/document/10261220">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10261220">PDF</a> / <a href="https://github.com/XYLGroup/MLDP">Code</a>
-                    <p>The proposed MLDP aims to realize the image translation from optical domain to ISAR domain. To generate realistic ISAR images, MLDP learns the scattering distribution features and the classification identifying features in physical and task perspectives. Meanwhile, MLDP applies the meta-learning strategy to improve its generalization ability to generate ISAR images under limited training samples.</p>
-                </div>
-            </div>
+const activityPhotos = shuffleArray(rawActivityPhotos);
+let currentSlide = 0;
+let slideInterval = null;
 
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2023-TNNLS-MLAM-two-level.png" alt="Preview of MLAM paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Metalearning-Based Alternating Minimization Algorithm for Nonconvex Optimization</span>
-                    <br> <strong>Jingyuan Xia</strong>, Shengxi Li, Jun-Jie Huang<sup>*</sup>, Zhixiong Yang, Imad M. Jaimoukha, Deniz Gündüz
-                    <br> <em>IEEE Transactions on Neural Networks and Learning Systems</em>, 2023
-                    <br> <a href="https://ieeexplore.ieee.org/document/9760074">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9760074">PDF</a> / <a href="https://github.com/XYLGroup/MLAM">Code</a>
-                    <p>This paper proposes a meta-learning-based alternating minimization (MLAM) method for nonconvex problems of multiple variables, which aims to minimize a part of the global losses over iterations instead of carrying minimization on each subproblem, and it tends to learn an adaptive strategy to replace the handcrafted counterpart resulting in advance on superior performance.</p>
-                </div>
-            </div>
+function lazyLoadImage(index) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    if (!slides[index]) return;
+    const img = slides[index].querySelector('img');
+    if (img && !img.getAttribute('src')) img.setAttribute('src', img.getAttribute('data-src'));
+}
 
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2023-Cyber.png" alt="Preview of LI-MKKM-MR paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">Localized Incomplete Multiple Kernel k-Means With Matrix-Induced Regularization</span>
-                    <br> Miaomiao Li<sup>*</sup>, <strong>Jingyuan Xia</strong>, Huiying Xu, Qing Liao, Xinzhong Zhu<sup>*</sup>, Xinwang Liu
-                    <br> <em>IEEE Transactions on Cybernetics</em>, 2023
-                    <br> <a href="https://ieeexplore.ieee.org/abstract/document/9626624">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9626624">PDF</a>
-                    <p>An improved Localized incomplete multiple kernel k-means (LI-MKKM), called LI-MKKM with matrix-induced regularization (LI-MKKM-MR), is proposed by incorporating a matrix-induced regularization term to handle the correlation among base kernels. We theoretically show that the local kernel alignment is a special case of its global one with normalizing each base kernel matrices.</p>
-                </div>
-            </div>
+function stopSlideShow() {
+    if (slideInterval) {
+        clearInterval(slideInterval);
+        slideInterval = null;
+    }
+}
 
-            <div class="publication-row">
-                <div class="publication-image">
-                    <img src="images/2022-WCL.png" alt="Preview of LAGD paper">
-                    <div class="view-overlay">View</div>
-                </div>
-                <div class="publication-text">
-                    <span class="papertitle">A Learning-Aided Flexible Gradient Descent Approach to MISO Beamforming</span>
-                    <br> Zhixiong Yang, <strong>Jingyuan Xia<sup>*</sup></strong>, Junshan Luo, Shuanghui Zhang<sup>*</sup>, Deniz Gündüz
-                    <br> <em>IEEE Wireless Communications Letters</em>, 2022
-                    <br> <a href="https://ieeexplore.ieee.org/document/9805773">Paper</a> / <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9805773">PDF</a> / <a href="https://github.com/XYLGroup/LAGD">Code</a>
-                    <p>This letter proposes a learning aided gradient descent (LAGD) algorithm to solve the weighted sum rate (WSR) maximization problem for multiple-input single-output (MISO) beamforming. The proposed LAGD algorithm directly optimizes the transmit precoder through implicit gradient descent based iterations, at each of which the optimization strategy is determined by a neural network, and thus, is dynamic and adaptive.</p>
-                </div>
-            </div>
-        </div>
+function startSlideShow() {
+    stopSlideShow();
+    if (activityPhotos.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    slideInterval = setInterval(() => changeSlide(1), 4000);
+}
 
-        <div class="footer-note">
-            <p>感谢 Dr. Jon Barron 分享本网页<a href="https://github.com/jonbarron/jonbarron_website">源代码</a>。</p>
-        </div>
-    </div>
+function changeSlide(direction) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    if (!slides.length) return;
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+    lazyLoadImage(currentSlide);
+    lazyLoadImage((currentSlide + 1) % slides.length);
+    slides[currentSlide].classList.add('active');
+}
 
-    <div id="lightbox">
-        <img src="" alt="Enlarged publication image">
-    </div>
+function initCarousel() {
+    const section = document.getElementById('photo-wall-section');
+    const container = document.getElementById('carousel-container');
+    if (!section || !container || !activityPhotos.length) {
+        if (section) section.style.display = 'none';
+        return;
+    }
 
-    <script>
-        // ==========================================
-        // 团队照片墙配置（PPT轮播图）- 懒加载优化版
-        // ==========================================
-        
-        const rawActivityPhotos = Array.from({length: 62}, (_, i) => `activity/${i + 1}.webp`);
+    section.style.display = 'block';
+    container.setAttribute('tabindex', '0');
+    container.setAttribute('aria-label', '团队风采轮播图');
 
-        function shuffleArray(array) {
-            const shuffled = [...array];
-            for (let i = shuffled.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-            }
-            return shuffled;
-        }
+    let slidesHtml = '';
+    activityPhotos.forEach((src, index) => {
+        const activeClass = index === 0 ? 'active' : '';
+        slidesHtml += `<div class="carousel-slide ${activeClass}"><img data-src="${src}" alt="Activity Photo ${index + 1}" decoding="async"></div>`;
+    });
 
-        const activityPhotos = shuffleArray(rawActivityPhotos);
+    container.innerHTML = slidesHtml + `
+        <button class="carousel-btn prev" type="button" aria-label="上一张" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next" type="button" aria-label="下一张" onclick="changeSlide(1)">&#10095;</button>`;
 
-        let currentSlide = 0;
-        let slideInterval;
+    lazyLoadImage(currentSlide);
+    lazyLoadImage((currentSlide + 1) % activityPhotos.length);
+    startSlideShow();
 
-        // 懒加载核心逻辑：按需分配真正的图片地址
-        function lazyLoadImage(index) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            if(!slides[index]) return;
-            const img = slides[index].querySelector('img');
-            if (img && !img.getAttribute('src')) {
-                img.setAttribute('src', img.getAttribute('data-src'));
-            }
-        }
+    container.addEventListener('mouseenter', stopSlideShow);
+    container.addEventListener('mouseleave', startSlideShow);
+    container.addEventListener('focusin', stopSlideShow);
+    container.addEventListener('focusout', startSlideShow);
+    container.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); changeSlide(1); }
+    });
 
-        function initCarousel() {
-            const section = document.getElementById('photo-wall-section');
-            const container = document.getElementById('carousel-container');
-            
-            if (!activityPhotos || activityPhotos.length === 0) {
-                section.style.display = 'none';
-                return;
-            }
+    let touchstartX = 0;
+    let touchendX = 0;
+    container.addEventListener('touchstart', e => {
+        touchstartX = e.changedTouches[0].screenX;
+        stopSlideShow();
+    }, {passive: true});
+    container.addEventListener('touchend', e => {
+        touchendX = e.changedTouches[0].screenX;
+        if (touchendX < touchstartX - 50) changeSlide(1);
+        if (touchendX > touchstartX + 50) changeSlide(-1);
+        startSlideShow();
+    }, {passive: true});
+}
 
-            section.style.display = 'block';
+// ==========================================
+// 论文大图查看器 (Lightbox)
+// ==========================================
+function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+    const lightboxImg = lightbox.querySelector('img');
+    const publicationImages = document.querySelectorAll('.publication-image');
 
-            let slidesHtml = '';
-            
-            activityPhotos.forEach((src, index) => {
-                const activeClass = index === 0 ? 'active' : '';
-                // 关键点：使用 data-src 而不是直接绑定 src
-                slidesHtml += `<div class="carousel-slide ${activeClass}"><img data-src="${src}" alt="Activity Photo ${index + 1}"></div>`;
-            });
-
-            const controlsHtml = `
-                <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
-                <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
-            `;
-
-            container.innerHTML = slidesHtml + controlsHtml;
-
-            // 初始时只加载当前图和下一张图，避免网络拥堵
-            lazyLoadImage(currentSlide);
-            lazyLoadImage((currentSlide + 1) % activityPhotos.length);
-
-            startSlideShow();
-            
-            container.addEventListener('mouseenter', stopSlideShow);
-            container.addEventListener('mouseleave', startSlideShow);
-
-            // 手机端手势滑动支持
-            let touchstartX = 0;
-            let touchendX = 0;
-            
-            container.addEventListener('touchstart', e => {
-                touchstartX = e.changedTouches[0].screenX;
-                stopSlideShow(); // 触摸时暂停自动播放
-            }, {passive: true});
-
-            container.addEventListener('touchend', e => {
-                touchendX = e.changedTouches[0].screenX;
-                handleSwipe();
-                startSlideShow(); // 结束后恢复
-            }, {passive: true});
-
-            function handleSwipe() {
-                // 滑动距离超过 50px 才算有效切换
-                if (touchendX < touchstartX - 50) changeSlide(1); 
-                if (touchendX > touchstartX + 50) changeSlide(-1);
-            }
-        }
-
-        function changeSlide(direction) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            
-            slides[currentSlide].classList.remove('active');
-            
-            currentSlide = (currentSlide + direction + slides.length) % slides.length;
-            
-            // 切换时预加载当前和下一张图
-            lazyLoadImage(currentSlide);
-            lazyLoadImage((currentSlide + 1) % slides.length);
-
-            slides[currentSlide].classList.add('active');
-        }
-
-        function startSlideShow() {
-            slideInterval = setInterval(() => {
-                changeSlide(1);
-            }, 4000); 
-        }
-
-        function stopSlideShow() {
-            clearInterval(slideInterval);
-        }
-
-        // ==========================================
-        // 论文大图查看器逻辑 (Lightbox)
-        // ==========================================
-        document.addEventListener('DOMContentLoaded', () => {
-            initCarousel();
-
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = lightbox.querySelector('img');
-            const publicationImages = document.querySelectorAll('.publication-image');
-
-            publicationImages.forEach(imageContainer => {
-                imageContainer.addEventListener('click', () => {
-                    const originalImg = imageContainer.querySelector('img');
-                    const imgSrc = originalImg.getAttribute('src');
-                    
-                    lightboxImg.setAttribute('src', imgSrc);
-                    lightbox.classList.add('active');
-                    
-                    setTimeout(() => {
-                        lightbox.style.opacity = '1';
-                        lightboxImg.style.transform = 'scale(1)';
-                    }, 20);
-                });
-            });
-
-            lightbox.addEventListener('click', () => {
-                lightbox.style.opacity = '0';
-                lightboxImg.style.transform = 'scale(0.8)';
-                
-                setTimeout(() => {
-                    lightbox.classList.remove('active');
-                }, 300);
-            });
+    function openLightbox(imageContainer) {
+        const originalImg = imageContainer.querySelector('img');
+        if (!originalImg) return;
+        lightboxImg.setAttribute('src', originalImg.getAttribute('src'));
+        lightboxImg.setAttribute('alt', originalImg.getAttribute('alt') || 'Enlarged publication image');
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(() => {
+            lightbox.style.opacity = '1';
+            lightboxImg.style.transform = 'scale(1)';
         });
-    </script>
+    }
 
-</body>
+    function closeLightbox() {
+        lightbox.style.opacity = '0';
+        lightboxImg.style.transform = 'scale(.94)';
+        document.body.style.overflow = '';
+        setTimeout(() => lightbox.classList.remove('active'), 220);
+    }
+
+    publicationImages.forEach(imageContainer => {
+        imageContainer.setAttribute('tabindex', '0');
+        imageContainer.setAttribute('role', 'button');
+        imageContainer.setAttribute('aria-label', '查看论文配图大图');
+        imageContainer.addEventListener('click', () => openLightbox(imageContainer));
+        imageContainer.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(imageContainer); }
+        });
+    });
+
+    lightbox.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+}
+
+// ==========================================
+// 章节导航高亮 + 回到顶部
+// ==========================================
+function initPageNavigation() {
+    const sections = ['about-section','photo-wall-section','news-section','publications-section']
+        .map(id => document.getElementById(id)).filter(Boolean);
+    const navLinks = document.querySelectorAll('.section-drip-nav a, .mobile-section-nav a');
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+            const visible = entries
+                .filter(e => e.isIntersecting)
+                .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+            if (!visible) return;
+            navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${visible.target.id}`));
+        }, {rootMargin: '-18% 0px -62% 0px', threshold: [0, .15, .35, .6]});
+        sections.forEach(section => observer.observe(section));
+    }
+
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        const update = () => backToTop.classList.toggle('visible', window.scrollY > 520);
+        window.addEventListener('scroll', update, {passive: true});
+        update();
+        backToTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initCarousel();
+    initLightbox();
+    initPageNavigation();
+});
+</script></body>
 </html>
